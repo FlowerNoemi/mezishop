@@ -7,41 +7,66 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Bee from '../assets/bee.png';
 import './header.css';
+import Link from '@mui/material/Link';
 
-const pages = ['Főoldal','Termékek', 'Bemutatkozás', 'Elérhetőség'];
-const settings = ['Bejelentkezés', 'Fiókom', 'Dashboard', 'Kijelentkezés'];
+const pages = [
+    {
+        page: 'Főoldal',
+        url: '/',
+    },
+    {
+        page: 'Termékek',
+        url: '/pages/Login'
+    },
+    {
+        page: 'Elérhetőség',
+        url: '/pages/Register'
+    },
+  ];
+
+  const profile = [
+    {
+        page: 'Bejelentkezés',
+        url: '/pages/Login',
+    },
+    {
+        page: 'Regisztráció',
+        url: '/pages/Register',
+    },
+  ];
+
+
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+ 
+
+
+
 
   return (
-    <AppBar position="static"  >
-      <Container maxWidth="xxl" className='toolBar'>
-        <Toolbar disableGutters >
-        <img src={Bee} alt='MéziShop' title='MéziShop'className='BrandLogo' sx={{ display: { xs: 'none', md: 'flex'}   }} />
+    <AppBar position="static" className='AppBar' >
+        <Container maxWidth="xxl" className='toolBar'> <img src={Bee} alt='MéziShop' title='MéziShop'className='BrandLogo' sx={{ display: { xs: 'none', md: 'flex'}   }}/>
+        </Container>
+      <Container maxWidth="xxl" className='toolBarW'>
+      
+        <Toolbar disableGutters className='toolbar' >
+        
           <Typography
+            className="brand"
             variant="h6"
             noWrap
             component="a"
@@ -50,12 +75,12 @@ const Header = () => {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 600,
               letterSpacing: '.2rem',
-              color: 'inherit',
               textDecoration: 'none',
-              marginLeft:2
+              marginLeft:2,
             }}
+            
           >
             MéziShop
           </Typography>
@@ -67,7 +92,6 @@ const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>
@@ -89,15 +113,30 @@ const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((pag) => (
+                <MenuItem key={pag.page} onClick={handleCloseNavMenu} sx={{ textAlign: 'center' , }}
+                href={pag.url} component={Link}
+                >
+                  <Typography  sx={{ color: 'black'}} >{pag.page}</Typography>
+                </MenuItem>
+              ))}
+                {profile.map((prof) => (
+                <MenuItem key={prof.page} onClick={handleCloseNavMenu} sx={{ textAlign: 'center' , }}
+                href={prof.url} component={Link}
+                >
+                  <Typography  sx={{ color: 'black'}} >{prof.page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+
+
+
+
+
           <Typography
-            variant="h5"
+            className="brand"
+            variant="h6"
             noWrap
             component="a"
             href=""
@@ -106,57 +145,35 @@ const Header = () => {
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
+              fontWeight: 600,
+              letterSpacing: '.2rem',
               textDecoration: 'none',
             }}
+           
             
           >
             MéziShop
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} >
-            {pages.map((page) => (
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} className='brandBox'>
+            {pages.map((pag) => (
               <Button
-                key={page}
+                component={Link}
+                className='brandButton'
+                key={pag.url}
+                href={pag.url}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 1, color: 'white', display: 'block' }}
+                sx={{ my: 1, color: 'black', display: 'block' }}
+                
               >
-                {page}
+                {pag.page}
               </Button>
+
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }} >
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu 
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+
+          
+                
         </Toolbar>
       </Container>
     </AppBar>

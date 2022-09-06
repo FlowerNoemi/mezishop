@@ -2,7 +2,8 @@ import { useState, useEffect, useRef} from 'react';
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from '@mui/material/Link';
-import axios from './api/axios';
+import axios from '../api/axios';
+import './register.css';
 
 const REGISTER_URL = '/mezishop_be/registration/registration.php';
 //eslint-disable-next-line
@@ -66,7 +67,7 @@ const  Register = () => {
            {email:email, password:pwd} ,
           {
               headers: { 'Content-Type': 'application/json' },
-              
+              withCredentials: true
           }
       );
       console.log(response?.data.code);
@@ -99,13 +100,14 @@ const  Register = () => {
   return (
     <>
     {success ? (
-                <section>
+                <section className='regSuccses'>
                     <h1>Sikeres regisztráció!</h1>
                     <p>
-                    <Link href="./Login">Bejelentkezés</Link>
+                    <Link href="/pages/Login">Bejelentkezés</Link>
                     </p>
                 </section>
             ) : (
+    <div className='regBox'>
     <section>
       <p 
       ref={errRef} className={errMsg? "errmsg" : "offscreen"}
@@ -192,17 +194,18 @@ const  Register = () => {
                 A megadott jelszavak nem egyeznek!
           </p>
 
-          <button disabled={!validEmail || !validPwd || !validMatch ? true : false}>Regisztáció</button>
+          <button disabled={!validEmail || !validPwd || !validMatch ? true : false}>Regisztráció</button>
       </form>
             <p>
                         Van már regisztrációd?<br />
                         <span className="line">
-                        <Link href="./Login">Bejelentkezés</Link>
+                        <Link href="/pages/Login">Bejelentkezés</Link>
                             
                         </span>
             </p>
 
     </section>
+    </div>
   )}
   </>
   )
