@@ -8,11 +8,11 @@ import Header from './components/Header';
 import RequireAuth from './components/RequireAuth';
 import Unauthorized from './components/Unauthorized';
 import Layout from './components/Layout';
-
+import Termekek from './pages/Termekek';
 
 const ROLES = {
-    'User': 2000,
-    'Admin': 2001
+    'User': '2000',
+    'Admin': '2001'
   }
   
 function App() {
@@ -20,23 +20,21 @@ function App() {
     <>
     <Header/>
     <Routes>
-        <Route path="/components/layout" element={<Layout />}/>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/pages/Home' element={<Home/>}/>
-        <Route path="/pages/Login" element={<Login />} />
-        <Route path="/pages/Register" element={<Register />} />
-        <Route path="/components/unauthorized" element={<Unauthorized />} />
-
+        <Route path="/" element={<Layout />}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path='/home' element={<Home/>}/>
+        
+        
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-          <Route path='/' element={<Home/>}/>
-        <Route path='/pages/Home' element={<Home/>}/>
-        <Route path="/pages/Login" element={<Login />} />
-        <Route path="/pages/Register" element={<Register />} />
+         
+        <Route path='/termekek' element={<Termekek/>}/>
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-          <Route path="/" element={<Home />} />  
-          <Route path="/components/Admin" element={<Admin />} />
+        <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>  
+        0<Route path='/editor' element={<Termekek/>}/>
+          <Route path="/admin" element={<Admin />} />
         </Route>
 
 

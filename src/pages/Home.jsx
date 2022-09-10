@@ -1,41 +1,53 @@
+import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../context/AuthProvider";
 import React from 'react';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import { useLocation, Navigate, Outlet } from "react-router-dom";
+
 import useAuth from "../hooks/useAuth";
 
 
 
-function Home() {
+const Home = () => {
     const { auth } = useAuth();
-    const location = useLocation();
-    
-    function handleClick(e) {
-    
-     <Navigate to="/components/admin" state={{ from: location }} />;
+    const { setAuth } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const logout = async () => {
+
+        setAuth({});
+        navigate('/linkpage');
     }
 
-    
-  return (
-    auth.roles === '2001' ? (
+    const level = auth?.roles?.find(role => role.includes('2001'))
 
-      <div className="App">
-      <div className="App">
-      <Link href="./components/Admin">Visit Our Homepage</Link>
-      </div>
-    </div>
+    return (
+        <section>
+            <h1>Home</h1>
+            <br />
+            <p>You are logged in!</p>
+        
+            { level  ? (
+            <>
+            <Link to="/editor" >Go to the Editor page</Link>
+            <Link to="/admin">Go to the Admin page</Link>
+            <Link to="/lounge">Go to the Lounge</Link>
+            <Link to="/linkpage">Go to the link page</Link>
+            <div className="flexGrow">
+                <button onClick={logout}>Sign Out</button>
+            </div>
+            </>
+            ): (
+            <>
+            <Link to="/lounge">Go to the Lounge</Link>
+            <Link to="/linkpage">Go to the link page</Link>
+            <div className="flexGrow">
+                <button onClick={logout}>Sign Out</button>
+            </div>
+            </>
+            )}
 
-     ) : (
-
-      <div className="App">
-        <div className="App">
-        Kiskugya
-        </div>
-      </div>
-
-     )
-
-    );  
-} 
+        </section>
+    )
+}
 
 export default Home;

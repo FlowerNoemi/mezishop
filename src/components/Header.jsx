@@ -20,26 +20,26 @@ import Link from '@mui/material/Link';
 const pages = [
     {
         page: 'Főoldal',
-        url: '/',
+        url: '/home',
     },
     {
         page: 'Termékek',
-        url: '/pages/Login'
+        url: '/login'
     },
     {
         page: 'Elérhetőség',
-        url: '/pages/Register'
+        url: '/register'
     },
   ];
 
   const profile = [
     {
         page: 'Bejelentkezés',
-        url: '/pages/Login',
+        url: '/login',
     },
     {
         page: 'Regisztráció',
-        url: '/pages/Register',
+        url: '/register',
     },
   ];
 
@@ -76,7 +76,7 @@ const Header = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
