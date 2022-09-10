@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 import axios from '../api/axios';
 import './register.css';
 
-const REGISTER_URL = '/mezishop_be/registration/registration.php';
+const REGISTER_URL = '/mezi_be/register/register.php';
 //eslint-disable-next-line
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -14,9 +14,15 @@ const  Register = () => {
   const userRef = useRef();
   const errRef = useRef();
 
+  const [vname, setVname] = useState('');
+ 
+  const [kname, setKname] = useState('');
+
+
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
+
 
   const [pwd, setPwd] = useState('');
   const [validPwd, setValidPwd] = useState(false);
@@ -60,11 +66,11 @@ const  Register = () => {
   const v2 = PWD_REGEX.test(pwd);
   if (!v1 || !v2) {
       setErrMsg("Érvénytelen mező");
-      return;
+      return;   
   }
   try {
       const response = await axios.post(REGISTER_URL,
-           {email:email, password:pwd} ,
+           {email:email, vname:vname, kname:kname , password:pwd} ,
           {
               headers: { 'Content-Type': 'application/json' },
               withCredentials: true
@@ -78,7 +84,10 @@ const  Register = () => {
       setSuccess(true);
       setEmail('');
       setPwd('');
-      setMatchPwd('');}
+      setMatchPwd('');
+      setKname('');
+      setVname('');
+    }
       else  {
         setSuccess(false);
         setErrMsg(response.data.message);
@@ -130,6 +139,47 @@ const  Register = () => {
             ref={userRef}
             autoComplete="off"
             onChange={(e) => setEmail(e.target.value)}
+            required
+            aria-invalid={validEmail ? "false": "true"}
+            aria-describedby="emailnote"
+            onFocus={() => setEmailFocus(true)}
+            onBlur={() => setEmailFocus(false)}
+          />
+            <p id="emailnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
+                <FontAwesomeIcon  icon={faInfoCircle}  />
+                Elküldés előtt add meg az összes adatot! <br/>
+                Az e-mail cím formátuma nem megfelelő! <br/>
+            </p>
+            <label htmlFor="vname">
+            Vezetéknév
+            
+            </label>
+          <input 
+            type="text"
+            id="vname"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setVname(e.target.value)}
+            required
+            aria-invalid={validEmail ? "false": "true"}
+            aria-describedby="emailnote"
+            onFocus={() => setEmailFocus(true)}
+            onBlur={() => setEmailFocus(false)}
+          />
+            <p id="emailnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
+                <FontAwesomeIcon  icon={faInfoCircle}  />
+                Elküldés előtt add meg az összes adatot! <br/>
+                Az e-mail cím formátuma nem megfelelő! <br/>
+            </p>
+            <label htmlFor="kname">
+            Keresztnév
+            </label>
+            <input 
+            type="text"
+            id="kname"
+            ref={userRef}
+            autoComplete="off"
+            onChange={(e) => setKname(e.target.value)}
             required
             aria-invalid={validEmail ? "false": "true"}
             aria-describedby="emailnote"

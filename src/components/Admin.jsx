@@ -1,16 +1,32 @@
 import { Link } from "react-router-dom"
+import useAuth from "../hooks/useAuth";
 
 const Admin = () => {
+    const { auth } = useAuth();
+
     return (
-        <section>
-            <h1>Admins Page</h1>
-            <br />
-            <p>You must have been assigned an Admin role.</p>
-            <div className="flexGrow">
-                <Link to="/">Home</Link>
+        auth.roles === '2001' ? (
+
+            <div className="App">
+        
+      
+            <div className="App">
+              KisCica
+              </div>
+          
             </div>
-        </section>
-    )
-}
+      
+           ) : (
+      
+            <div className="App">
+              <div className="App">
+              Kiskugya
+              </div>
+            </div>
+      
+           )
+      
+          );  
+      } 
 
 export default Admin

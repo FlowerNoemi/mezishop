@@ -3,7 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './login.css';
 import axios from '../api/axios';
-const LOGIN_URL = '/mezishop_be/auth/auth.php';
+const LOGIN_URL = '/mezi_be/auth/auth.php';
 
 const Login = () => {
     const { setAuth } = useAuth();
@@ -31,6 +31,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
+           
             const response = await axios.post(LOGIN_URL,
                 JSON.stringify({ email:email, password:pwd }),
                 {
@@ -42,6 +43,8 @@ const Login = () => {
             console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
+            console.log(roles);
+
             
             setAuth({ email, pwd, roles, accessToken });
             navigate(from , { replace: true });
@@ -94,7 +97,7 @@ const Login = () => {
                         Még nem regisztrált?<br />
                         <span className="line">
                             
-                        <Link to="/pages/register">Sign Up</Link>
+                        <Link to="/pages/register">Regisztráció</Link>
                         </span>
                     </p>
                 </section>

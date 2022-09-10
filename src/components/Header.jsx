@@ -13,6 +13,10 @@ import Bee from '../assets/bee.png';
 import './header.css';
 import Link from '@mui/material/Link';
 
+
+
+
+
 const pages = [
     {
         page: 'Főoldal',
@@ -42,6 +46,7 @@ const pages = [
 
 
 const Header = () => {
+    
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -58,6 +63,7 @@ const Header = () => {
 
 
   return (
+    
     <AppBar position="static" className='AppBar' >
         <Container maxWidth="xxl" className='toolBar'> <img src={Bee} alt='MéziShop' title='MéziShop'className='BrandLogo' sx={{ display: { xs: 'none', md: 'flex'}   }}/>
         </Container>
@@ -170,13 +176,11 @@ const Header = () => {
 
             ))}
           </Box>
-
-
-          
-                
         </Toolbar>
       </Container>
     </AppBar>
+
+   
   );
 };
 export default Header;
