@@ -9,11 +9,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import {getAllUsers} from '../api/getallaxios';
-import './admin.css';
+import {getAllMessage} from '../api/getmessage';
+import './message.css';
 
-const Admin = () => {
-  const [users, setUsers] = useState(['']);
+
+
+const Message = () => {
+  const [messages, setMessages] = useState(['']);
 
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -37,11 +39,11 @@ const Admin = () => {
   }));
   
   
-  const allUser = async () => {
+  const allMessage = async () => {
     try {
-      const userRequest = await  getAllUsers();
-      console.log(userRequest)
-      setUsers(userRequest);
+      const MessageRequest = await  getAllMessage();
+      console.log(MessageRequest)
+      setMessages(MessageRequest);
       
       } catch(e) {
       console.log('error message : ', e);
@@ -50,7 +52,7 @@ const Admin = () => {
 
   useEffect(() => {
     
-    allUser();    
+    allMessage();    
 } , [] 
 );
 
@@ -64,22 +66,24 @@ const Admin = () => {
       <Table sx={{ minWidth: 700 , marginTop:5 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>id</StyledTableCell>
-            <StyledTableCell align="center">Email</StyledTableCell>
-            <StyledTableCell align="center">Vezetéknév</StyledTableCell>
-            <StyledTableCell align="center">Keresztnév</StyledTableCell>
+
+            <StyledTableCell align="center">id</StyledTableCell>
+            <StyledTableCell align="center">Dátum</StyledTableCell>
+            <StyledTableCell align="center">Email cím</StyledTableCell>
+            <StyledTableCell align="center">Üzenet</StyledTableCell>
+
         
           </TableRow>
         </TableHead>
         <TableBody>
-        {users.map((user, id) => (
+        {messages.map((message, id) => (
             <StyledTableRow key={id}>
               <StyledTableCell component="th" scope="row" >
-                {user.id}
+                {message.id}
               </StyledTableCell>
-              <StyledTableCell align="center" >{user.email}</StyledTableCell>
-              <StyledTableCell align="center">{user.vname}</StyledTableCell>
-              <StyledTableCell align="center">{user.kname}</StyledTableCell>
+              <StyledTableCell align="center" >{message.date}</StyledTableCell>
+              <StyledTableCell align="center" >{message.email}</StyledTableCell>
+              <StyledTableCell align="center">{message.message}</StyledTableCell>
               
             </StyledTableRow>
           ))}
@@ -87,11 +91,11 @@ const Admin = () => {
       </Table>
     </TableContainer>
     <Stack spacing={2} direction="row">
-        <Button className='btnadmin' variant="contained" onClick={() => allUser()} sx={{ margin:2 }}>Frissít</Button>
+        <Button className='btnadmin' variant="contained" onClick={() => allMessage()} sx={{ margin:2 }}>Frissít</Button>
     </Stack>
     </>
   );
 }
 
 
-export default Admin;
+export default Message;

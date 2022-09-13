@@ -7,8 +7,14 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import RequireAuth from './components/RequireAuth';
 import Unauthorized from './components/Unauthorized';
-import Layout from './components/Layout';
 import Termekek from './pages/Termekek';
+import Contact from './pages/Contact';
+import Profile from './pages/Profile';
+import Editor from './components/Editor'; 
+import Basket from './components/Basket';
+import Message from './components/Message';
+
+
 
 const ROLES = {
     'User': '2000',
@@ -20,21 +26,24 @@ function App() {
     <>
     <Header/>
     <Routes>
-        <Route path="/" element={<Layout />}/>
+        <Route path="/" element={<Home />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path='/home' element={<Home/>}/>
-        
+        <Route path='/termekek' element={<Termekek/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
-         
-        <Route path='/termekek' element={<Termekek/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/basket' element={<Basket/>}/>
+
         </Route>
 
         <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>  
-        0<Route path='/editor' element={<Termekek/>}/>
+        0<Route path='/editor' element={<Editor/>}/>
           <Route path="/admin" element={<Admin />} />
+          <Route path="/message" element={<Message />} />
         </Route>
 
 

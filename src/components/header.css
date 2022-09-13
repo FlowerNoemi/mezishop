@@ -26,7 +26,6 @@
 
 .AppBar > .toolBarW > .toolbar >.brand {
    color: black;
-   
 }
 
 
@@ -36,8 +35,12 @@
     color: black;
     background: var(--primary-color);
     margin: 10px;
-    width: 120px;
+    width: 135px;
     height: 30px;
     padding: 0px;
     text-align: center;
+    font-weight: 700;
+    font-size: 85%;
+    font-family: 'Courier New', Courier, monospace;
 }
+

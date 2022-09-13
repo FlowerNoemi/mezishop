@@ -1,11 +1,11 @@
-
+import './termekek.css'
 
 
 
 function Termekek() {
     return (
-      <div className="App">
-        <div className="App">
+      <div className="product">
+        <div>
         Teszt termekek
         </div>
       </div>

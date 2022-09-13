@@ -91,13 +91,13 @@ const Login = () => {
                             value={pwd}
                             required
                         />
-                        <button>Bejelentkezés</button>
+                        <button className='loginBtn'>Bejelentkezés</button>
                     </form>
                     <p>
                         Még nem regisztrált?<br />
                         <span className="line">
                             
-                        <Link to="/pages/register">Regisztráció</Link>
+                        <Link to="/register">Regisztráció</Link>
                         </span>
                     </p>
                 </section>

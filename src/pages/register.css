@@ -1,4 +1,8 @@
-
+:root {
+    
+    --primary-color: linear-gradient(to right, #EFA541, #E74B06);
+    --secondary-color: linear-gradient(to right, #D69967, #c5580a);
+}
 
 .regBox {
   display: flex;
@@ -7,6 +11,21 @@
   min-height: 100vh;
   padding: 1rem 0.5rem;
   margin-top: 1rem;
+}
+
+
+.regSection {
+    
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background: var(--secondary-color);
+    opacity: 98%;
+    border-radius: 20px;
 }
 
 .regSuccses {
@@ -52,6 +71,7 @@ button {
 
 button {
   padding: 0.5rem;
+  
 }
 
 .instructions {
@@ -97,4 +117,9 @@ button {
 
 .line {
     display: inline-block;
+}
+
+.regBtn {
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
 }

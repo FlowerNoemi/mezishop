@@ -1,7 +1,7 @@
 :root {
     
     --primary-color: linear-gradient(to right, #EFA541, #E74B06);
-    --gray-color: linear-gradient(to right, #D69967, #c5580a);
+    --secondary-color: linear-gradient(to right, #D69967, #c5580a);
 }
 
 .logDiv {
@@ -14,7 +14,7 @@ margin-top: 1rem;
 
 }
 
-section {
+.logBox {
     
     width: 100%;
     max-width: 420px;
@@ -23,21 +23,11 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-    background: var(--gray-color);
+    background: var(--secondary-color);
     opacity: 98%;
+    border-radius: 20px;
 }
 
-.regSuccses {
-    width: 100%;
-    max-width: 420px;
-    min-height: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background: var(--gray-color);
-    opacity: 89%;
-}
 
 
 form {
@@ -114,4 +104,10 @@ button {
 
 .line {
     display: inline-block;
+}
+
+.loginBtn {
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+   
 }
