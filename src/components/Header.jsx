@@ -13,6 +13,7 @@ import Bee from '../assets/bee.png';
 import './header.css';
 import Link from '@mui/material/Link';
 import AuthContext from "../context/AuthProvider";
+import { CartContext } from '../context/CartContext';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useNavigate} from "react-router-dom";
 import useAuth from "../hooks/useAuth";
@@ -20,9 +21,8 @@ import { useContext } from "react";
 import LoginIcon from '@mui/icons-material/Login';
 import Tooltip from '@mui/material/Tooltip';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
-import Badge from '@mui/material/Badge';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
+import CartIcon from './button/Cart-iconcomponents';
+import CartDropdown from './cart-dropdown/Cartdropdown';
 const pages = [
     {
         page: 'Főoldal',
@@ -39,9 +39,10 @@ const pages = [
   ];
 
 
-const Header = () => {
+const Header = ({badgeContent}) => {
   const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
+  const {isCartOpen } = useContext(CartContext);
   const navigate = useNavigate();
     
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -83,9 +84,7 @@ const profil = async () => {
     navigate('/profile');
 }
 
-const basket = async () => {
-  navigate('/basket');
-}
+
 
 
 
@@ -206,17 +205,9 @@ const basket = async () => {
             
               {level ? (
             <div>
-                <IconButton size="small" aria-label="show 4 new mails" 
-                sx={{ color: 'black', background: 'linear-gradient(to right, #EFA541, #E74B06)', padding:0.5, marginRight:1}}
-                
-                onClick={basket} >
-              
-                 <Badge badgeContent={3}  color='primary'  >
-                  
-                    <ShoppingBasketIcon/>
-                    </Badge>
-                    </IconButton>
-                                       
+                 <CartIcon/>  
+
+                 { isCartOpen && <CartDropdown/>}
                 <IconButton
                   size="large"
                   aria-label="account of current user"

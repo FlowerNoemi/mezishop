@@ -1,16 +1,32 @@
-import './termekek.css'
+import React from 'react';
+import './termekek.css';
+import ProductCard from '../components/ProductCard';
+import { useContext } from 'react';
+import { ProductContext } from '../context/Productcontext';
+const Termekek= () => {
+
+
+  const {products} = useContext(ProductContext);
 
 
 
-function Termekek() {
+
+
+
     return (
       <div className="product">
-        <div>
-        Teszt termekek
-        </div>
+         
+         {products.map((product, id)=> {
+                    return(
+                    <ProductCard key = {id} product={product}
+                    />
+            )})}
+           
       </div>
       
     );
   }
   
   export default Termekek;
+
+  
