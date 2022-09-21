@@ -13,6 +13,8 @@ import Editor from './components/Editor';
 import Basket from './components/Basket';
 import Message from './components/Message';
 import Newproduct from './components/Newproduct'
+import Checkout from './pages/Checkout';
+
 
 const ROLES = {
     'User': '2000',
@@ -31,10 +33,14 @@ function App() {
 			<Route path='/home' element={<Home/>}/>
 			<Route path='/termekek' element={<Termekek/>}/>
 			<Route path='/contact' element={<Contact/>}/>
+			<Route path='/basket' element={<Basket/>}/>
+			<Route path='/checkout' element={<Checkout/>}/>
+
 			
 			<Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
 				<Route path='/profile' element={<Profile/>}/>
-				<Route path='/basket' element={<Basket/>}/>
+				
+				
 			</Route>
 
 			<Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>  

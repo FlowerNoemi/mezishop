@@ -201,13 +201,12 @@ const profil = async () => {
 
             ))}
           </Box>
-          
+          <CartIcon/>  
+                { isCartOpen && <CartDropdown/>}
             
               {level ? (
             <div>
-                 <CartIcon/>  
-
-                 { isCartOpen && <CartDropdown/>}
+                 
                 <IconButton
                   size="large"
                   aria-label="account of current user"
@@ -248,7 +247,7 @@ const profil = async () => {
             <div className='iconBox'>
                
               
-            
+               
                 <IconButton
                 size="small"
                 onClick={registration} 
