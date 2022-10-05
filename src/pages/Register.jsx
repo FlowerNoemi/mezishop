@@ -5,6 +5,8 @@ import Link from '@mui/material/Link';
 import axios from '../api/axios';
 import './register.css';
 import { useNavigate} from "react-router-dom";
+import {Myinput, MyinputPassword}  from '../components/input/Myinput';
+
 
 const REGISTER_URL = '/mezi_be/register/register.php';
 //eslint-disable-next-line
@@ -14,7 +16,7 @@ const NAME_REGEX = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\s].{1,}$/;
 
 
 const  Register = () => {
-  const userRef = useRef();
+
   const errRef = useRef();
   const navigate = useNavigate();
 
@@ -45,10 +47,6 @@ const  Register = () => {
   const [errMsg, setErrMsg] = useState('');
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    userRef.current.focus();
-
-  }, []);
 
   useEffect(() => {
     const result = EMAIL_REGEX.test(email);
@@ -152,7 +150,7 @@ const  Register = () => {
       <h1>Regisztáció</h1>
       <form onSubmit={handleSubmit}>
           <label htmlFor="email">
-            Email cím: 
+            E-mail cím: 
             <span className={validEmail ? "valid" : "hide"}>
             <FontAwesomeIcon icon={faCheck}  />
             </span>
@@ -161,11 +159,9 @@ const  Register = () => {
             </span>
             
           </label>
-          <input 
+          <Myinput
             type="email"
             id="email"
-            ref={userRef}
-            autoComplete="off"
             onChange={(e) => setEmail(e.target.value)}
             required
             aria-invalid={validEmail ? "false": "true"}
@@ -173,7 +169,7 @@ const  Register = () => {
             onFocus={() => setEmailFocus(true)}
             onBlur={() => setEmailFocus(false)}
           />
-            <p id="emailnote" className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
+            <p  className={emailFocus && email && !validEmail ? "instructions" : "offscreen"}>
                 <FontAwesomeIcon  icon={faInfoCircle}  />
                 Elküldés előtt add meg az email címed! <br/>
                 Az e-mail cím formátuma nem megfelelő! <br/>
@@ -187,11 +183,9 @@ const  Register = () => {
             <FontAwesomeIcon icon={faTimes} />
             </span>
             </label>
-          <input 
+          <Myinput 
             type="text"
             id="vname"
-            ref={userRef}
-            autoComplete="off"
             onChange={(e) => setVname(e.target.value)}
             required
             aria-describedby="vnamenote"
@@ -212,11 +206,9 @@ const  Register = () => {
             <FontAwesomeIcon icon={faTimes} />
             </span>
             </label>
-            <input 
+            <Myinput 
             type="text"
             id="kname"
-            ref={userRef}
-            autoComplete="off"
             onChange={(e) => setKname(e.target.value)}
             required
             aria-describedby="knamenote"
@@ -240,11 +232,7 @@ const  Register = () => {
             <FontAwesomeIcon icon={faTimes} />
             </span>
           </label>
-          <input 
-            type="password"
-            id="password"
-            ref={userRef}
-            autoComplete="off"
+          <MyinputPassword
             onChange={(e) => setPwd(e.target.value)}
             required
             aria-invalid={validPwd ? "false": "true"}
@@ -267,11 +255,8 @@ const  Register = () => {
             <FontAwesomeIcon icon={faTimes} />
             </span>
           </label>
-          <input 
-            type="password"
+          <MyinputPassword
             id="confirm_pwd"
-            ref={userRef}
-            autoComplete="off"
             onChange={(e) => setMatchPwd(e.target.value)}
             required
             aria-invalid={validMatch ? "false": "true"}

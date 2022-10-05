@@ -5,7 +5,7 @@ import Link from '@mui/material/Link';
 import axios from '../api/axios';
 import './contact.css';
 import { useNavigate} from "react-router-dom";
-import Iframe from 'react-iframe'
+import Iframe from '../components/Iframe';
 import Stack from '@mui/material/Stack';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -15,7 +15,7 @@ import Avatar from '@mui/material/Avatar';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import CallIcon from '@mui/icons-material/Call';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
-
+import {Myinput, MyTextArea}  from '../components/input/Myinput';
 const MESSAGE_URL = '/mezi_be/message/newmessage.php';
 
 //eslint-disable-next-line
@@ -23,8 +23,9 @@ const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+
 
 
 
+
 function Contact() {
-    const userRef = useRef();
+
     const errRef = useRef();
     const navigate = useNavigate();
 
@@ -50,11 +51,8 @@ function Contact() {
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
-
-    useEffect(() => {
-        userRef.current.focus();
-
-    }, []);
+    const iframe = '<iframe height="265" style="width: 100%;" scrolling="no" title="fx." src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3812.686497890489!2d21.7186868652938!3d47.49037160886998!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1663099687388!5m2!1shu!2shu" frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>'; 
+ 
 
     useEffect(() => {
         const result = EMAIL_REGEX.test(email);
@@ -137,7 +135,7 @@ function Contact() {
                         <h1>Írjon nekünk!</h1>
                         <form onSubmit={handleSubmit}>
                             <label htmlFor="email">
-                                Email cím:
+                                E-mail cím:
                                 <span className={validEmail ? "valid" : "hide"}>
                                     <FontAwesomeIcon icon={faCheck} />
                                 </span>
@@ -146,11 +144,9 @@ function Contact() {
                                 </span>
 
                             </label>
-                            <input
+                            <Myinput
+                                
                                 type="email"
-                                id="email"
-                                ref={userRef}
-                                autoComplete="off"
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
                                 aria-invalid={validEmail ? "false" : "true"}
@@ -171,11 +167,7 @@ function Contact() {
                                     <FontAwesomeIcon icon={faTimes} />
                                 </span>
                             </label>
-                            <textarea
-                                type="text"
-                                id="message"
-                                ref={userRef}
-                                autoComplete="off"
+                            <MyTextArea
                                 onChange={(e) => setMessage(e.target.value)}
                                 required
                                 aria-describedby="messagenote"
@@ -222,13 +214,8 @@ function Contact() {
                         </div>
                     <div>
 
-                    <Iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3812.686497890489!2d21.7186868652938!3d47.49037160886998!3m2!1i1024!2i768!4f13.1!5e0!3m2!1shu!2shu!4v1663099687388!5m2!1shu!2shu" 
-                    
-                    width="350px"
-                    id="myId"
-                    height= "300px"
-                    className="myClassname"
-                    sx={{}}/>
+                    <Iframe iframe = {iframe}
+                    />
                     </div>
                     </section>
                 </div>

@@ -4,10 +4,20 @@ import AuthContext from "../context/AuthProvider";
 import React from 'react';
 import './home.css'
 import useAuth from "../hooks/useAuth";
+import Background from '../assets/bg.webp';
 
 
 
 const Home = () => {
+    const mystyle = {
+        backgroundImage: `url(${Background})`,
+        backgroundSize:'cover',
+        backgroundRepeat: "no-repeat",
+        height:'88vh',
+       
+        backgroundPosition: '10% 110%',
+        
+      }
     const { auth } = useAuth();
     const { setAuth } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,9 +28,7 @@ const Home = () => {
         navigate('/home');
     }
 
-    const shop = async () => {
-
-        setAuth({});
+    const shop = () => {
         navigate('/termekek');
     }
 
@@ -29,9 +37,10 @@ const Home = () => {
     return (
 
         <>
-           
+           <div className='homeBody' style={mystyle}>
             { level  ? (
-            <section className="homeSection">
+            
+            <section className="homeSection" >
             <div className="homeBox">
                 <Link to="/editor" >Szerkesztő</Link>
             </div>
@@ -47,14 +56,17 @@ const Home = () => {
 
             </section>
             ): (
-                <section className="landingBox">
+
+            <section className="landingBox" >
+            <div className="hom1"> 
             <h1 className="homeh1">Üdvözöljük honlapunkon!</h1>
-            
-            <div >
+            <div className="homeBtnBox">
                 <button onClick={shop}  className="homeBtn">Irány a shop!</button>
+            </div>
             </div>
             </section>
             )}
+            </div>
 </>
        
     )

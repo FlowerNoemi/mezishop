@@ -9,26 +9,26 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
 
+
+
 const ProductCard = ({product}) => {
- 
+
 
   const {id,termeknev,img,ar,mennyiseg} = product;
   const { addItemToCart } = useContext(CartContext);
   const addProductToCart = () => addItemToCart(product);
-
-
-
-
-
-
+ 
 
   return (
     <Card className='cards'  data-tilt key={id} 
     >
+      
       <article className='post'>
+      <div className='card-title'>
+      <h2>{termeknev}</h2>
+      </div>
       <CardMedia
         component="img"
-        height="194"
         image={img}
         alt={`${termeknev}`}
         title={`${termeknev}`}
@@ -36,7 +36,7 @@ const ProductCard = ({product}) => {
       />
       <CardContent className='post-content'>
                 <h4>{mennyiseg}</h4>  
-                <h2>{termeknev}</h2>
+               
                 <div className="ar">{ar} Ft</div>
                 <CardActions className='cardactions' > 
                 
@@ -50,7 +50,7 @@ const ProductCard = ({product}) => {
                 </div>  
             </CardActions>
             
-            <div className="mt-auto">
+            <div>
          
         </div>
                     

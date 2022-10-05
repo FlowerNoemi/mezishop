@@ -1,6 +1,5 @@
 import axios from '../api/axios';
 
-
 const user_URL = '/mezi_be/api/alluser.php?search';
 
 export const getAllUsers = async () => {  

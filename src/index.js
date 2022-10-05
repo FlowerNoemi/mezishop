@@ -6,6 +6,7 @@ import { AuthProvider } from './context/AuthProvider';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ProductsProvider } from './context/Productcontext';
 import { CartProvider } from './context/CartContext';
+import { UserProvider } from './context/UserContext';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -17,9 +18,11 @@ root.render(
     	<AuthProvider> 
 		<ProductsProvider> 
 			<CartProvider>
+			<UserProvider>
       			<Routes>
       				<Route path='/*' element={<App/>}/>
       			</Routes>
+			</UserProvider>
 			  </CartProvider> 
 			  </ProductsProvider>
     	</AuthProvider>

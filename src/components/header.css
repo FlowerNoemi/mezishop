@@ -1,10 +1,4 @@
 
-:root {
-    
-    --primary-color: linear-gradient(to right, #EFA541, #E74B06);
-    --secondary-color: linear-gradient(to right, #D69967, #c5580a);
-}
-
 .BrandLogo {
     width: 1.5rem;
     padding: 1px;
@@ -18,14 +12,14 @@
 }
 
 .toolBarW {
-        background: white;
-        
+        background: white;  
 }
 
 
 
 .AppBar > .toolBarW > .toolbar >.brand {
    color: black;
+   font-family: 'Arima Madurai, curiseve, sans-serif';
 }
 
 
@@ -41,6 +35,7 @@
     text-align: center;
     font-weight: 700;
     font-size: 85%;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Arima Madurai, curiseve, sans-serif';
+    
 }
 

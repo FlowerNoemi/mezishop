@@ -1,45 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 
 :root {
     
-    --primary-color: linear-gradient(to right, #EFA541, #E74B06);
+    --primary-color: linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 );
     --secondary-color: linear-gradient(to right, #D69967, #c5580a);
 }
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arima Madurai', cursive, sans-serif;
 }
 
 html {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Arima Madurai', cursive, sans-serif;
     font-size: 22px;
-    color: #fff;
-}
-
-body {
-    min-height: 100vh;
-    background-color:#D69967;
-    background-image: url('./assets/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 50% 80%;
 
 }
 

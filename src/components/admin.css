@@ -1,9 +1,3 @@
-:root {
-    
-    --primary-color: linear-gradient(to right, #EFA541, #E74B06);
-    --secondary-color: linear-gradient(to right, #D69967, #c5580a);
-}
-
 
 .btnadmin {
     background: var(--primary-color);

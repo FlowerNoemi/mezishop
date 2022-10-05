@@ -3,6 +3,7 @@ import './newproduct.css';
 import axios from '../api/axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import {Myinput}  from './input/Myinput';
 
 const PRODUCT_URL = '/mezi_be/product/newproduct.php';
 
@@ -95,10 +96,10 @@ const NewProduct = () => {
     >
 
       <div>
-        <TextField
+        <Myinput
           id="standard-textarea"
           onChange={(e) => setTermeknev(e.target.value)}
-          placeholder="Terméknév"
+          label="Terméknév"
           multiline
           variant="standard"
         />

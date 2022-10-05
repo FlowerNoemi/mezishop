@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Admin from './components/Admin';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import RequireAuth from './components/RequireAuth';
 import Unauthorized from './components/Unauthorized';
 import Termekek from './pages/Termekek';
@@ -14,8 +15,8 @@ import Basket from './components/Basket';
 import Message from './components/Message';
 import Newproduct from './components/Newproduct'
 import Checkout from './pages/Checkout';
-
-
+import Finish from './components/Finish';
+import Layout from './components/Layout';
 const ROLES = {
     'User': '2000',
     'Admin': '2001'
@@ -35,11 +36,11 @@ function App() {
 			<Route path='/contact' element={<Contact/>}/>
 			<Route path='/basket' element={<Basket/>}/>
 			<Route path='/checkout' element={<Checkout/>}/>
-
-			
+			<Route path='/finish' element={<Finish/>}/>
+			<Route path='/layout' element={<Layout/>}/>
 			<Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
 				<Route path='/profile' element={<Profile/>}/>
-				
+
 				
 			</Route>
 
@@ -50,6 +51,7 @@ function App() {
 				<Route path="/new" element={<Newproduct />} />
 			</Route>
     	</Routes>
+		<Footer/>
     </>
   );
 }

@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Bee from '../assets/bee.png';
 import './header.css';
 import Link from '@mui/material/Link';
-import AuthContext from "../context/AuthProvider";
+
 import { CartContext } from '../context/CartContext';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useNavigate} from "react-router-dom";
@@ -23,6 +23,13 @@ import Tooltip from '@mui/material/Tooltip';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import CartIcon from './button/Cart-iconcomponents';
 import CartDropdown from './cart-dropdown/Cartdropdown';
+import {UserContext  } from '../context/UserContext';
+import AuthContext from "../context/AuthProvider";
+
+
+
+
+
 const pages = [
     {
         page: 'Főoldal',
@@ -42,8 +49,14 @@ const pages = [
 const Header = ({badgeContent}) => {
   const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
-  const {isCartOpen } = useContext(CartContext);
+  const {setVname, setKname} = useContext(UserContext);
+  const { clearFromCart } = useContext(CartContext);
+
   const navigate = useNavigate();
+
+
+  const {isCartOpen } = useContext(CartContext);
+ 
     
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -59,11 +72,7 @@ const Header = ({badgeContent}) => {
  
   const level = auth?.roles?.find(role => role.includes('2000'))
 
-  const logout = async () => {
 
-    setAuth({});
-    navigate('/home');
-}
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -72,19 +81,29 @@ const Header = ({badgeContent}) => {
     setAnchorEl(null);
   };
 
-  const login = async () => {
+  const login = () => {
     navigate('/login');
 }
 
-const registration = async () => {
+const registration = () => {
     navigate('/register');
 }
 
-const profil = async () => {
+const profil = () => {
     navigate('/profile');
 }
 
+const logout = async () => {
 
+
+      setAuth({});
+      setVname('');
+      setKname('');
+      clearFromCart();
+  
+      navigate('/home');
+
+}
 
 
 
@@ -151,7 +170,7 @@ const profil = async () => {
                 <MenuItem key={pag.page} onClick={handleCloseNavMenu} sx={{ textAlign: 'center' , }}
                  component={Link}
                 >
-                  <Typography  sx={{ color: 'black'}} onClick={(e) => navigate(pag.url)} >{pag.page}</Typography>
+                  <Typography  sx={{ color: 'black', fontFamily: 'Arima Madurai, curiseve, sans-serif'}} onClick={(e) => navigate(pag.url)} >{pag.page}</Typography>
                 </MenuItem>
               ))}
 
@@ -186,7 +205,7 @@ const profil = async () => {
           >
             MéziShop
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} className='brandBox'>
+          <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }} className='brandBox'>
             {pages.map((pag) => (
               <Button
                 component={Link}
@@ -213,7 +232,7 @@ const profil = async () => {
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleMenu} 
-                  sx={{ color: 'black', background: 'linear-gradient(to right, #EFA541, #E74B06)', padding:0.5}}
+                  sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', padding:0.5}}
                 >
                   <AccountCircle/>
                 </IconButton>
@@ -251,7 +270,7 @@ const profil = async () => {
                 <IconButton
                 size="small"
                 onClick={registration} 
-                sx={{ color: 'black', background: 'linear-gradient(to right, #EFA541, #E74B06)', marginLeft:1 , padding:0.5}} 
+                sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', marginLeft:1 , padding:0.5}} 
             >
                 <Tooltip title="Regisztráció">
             <HowToRegIcon/>
@@ -261,7 +280,7 @@ const profil = async () => {
           <IconButton
               size="small"
                 onClick={login} 
-                sx={{ color: 'black', background: 'linear-gradient(to right, #EFA541, #E74B06)', marginLeft:1, padding:0.5}}
+                sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', marginLeft:1, padding:0.5}}
               >
                 <Tooltip 
                 title="Bejelentkezés">

@@ -3,7 +3,10 @@ import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './login.css';
 import axios from '../api/axios';
+import {Myinput, MyinputPasswordLogin}  from '../components/input/Myinput';
+import loginlogo from '../assets/logo.webp';
 const LOGIN_URL = '/mezi_be/auth/auth.php';
+
 
 const Login = () => {
     const { setAuth } = useAuth();
@@ -12,16 +15,14 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/home";
 
-    const userRef = useRef();
     const errRef = useRef();
 
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
+    
+    
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
 
 
     useEffect(() => {
@@ -43,8 +44,11 @@ const Login = () => {
             console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
+            const kname = response?.data?.kname;
+            const vname = response?.data?.vname;
             console.log(roles);
-            setAuth({ email, pwd, roles, accessToken });
+            console.log(kname);
+            setAuth({ email, pwd, roles, accessToken,kname,vname });
             navigate(from , { replace: true });
             setEmail('');
             setPwd('');
@@ -64,36 +68,46 @@ const Login = () => {
     }
 
     return (
+        <div className='backgroundlog' >
         <div className='logDiv'>
+       
+                <div className='imgBox'>
+                <h1 className='logh1'>Bejelentkezés</h1>
+                <img src={loginlogo} alt="" className='imgLogo' />
+                <p className='logP'>Még nem regisztrált?<br />
+                    <span className="line">
+                        <Link to="/register">Regisztráció</Link>
+                    </span>
+                </p>
+                </div>
             <section className='logBox'>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <h1>Bejelentkezés</h1>
+
+                
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Email cím:</label>
-                    <input
+                
+                    <Myinput
                         type="email"
                         id="email"
-                        ref={userRef}
-                        autoComplete="off"
+                        label='E-mail cím:'
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        required/>
-                    <label htmlFor="password">Jelszó:</label>
-                    <input
-                        type="password"
-                        id="password"
+                        required
+                        />
+                 
+                    <MyinputPasswordLogin
+                  
+                        label='Jelszó:'
                         onChange={(e) => setPwd(e.target.value)}
                         value={pwd}
                         required/>
                     <button className='loginBtn'>Bejelentkezés</button>
                 </form>
-                <p>Még nem regisztrált?<br />
-                    <span className="line">
-                        <Link to="/register">Regisztráció</Link>
-                    </span>
-                </p>
+               
             </section>
         </div>   
+        </div>
     )
 }
 
