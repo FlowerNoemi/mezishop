@@ -7,12 +7,11 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Bee from '../assets/bee.png';
 import './header.css';
 import Link from '@mui/material/Link';
-
+import {MyButtonsmall}  from '../components/button/Buttoncomponents';
 import { CartContext } from '../context/CartContext';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useNavigate} from "react-router-dom";
@@ -22,7 +21,6 @@ import LoginIcon from '@mui/icons-material/Login';
 import Tooltip from '@mui/material/Tooltip';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import CartIcon from './button/Cart-iconcomponents';
-import CartDropdown from './cart-dropdown/Cartdropdown';
 import {UserContext  } from '../context/UserContext';
 import AuthContext from "../context/AuthProvider";
 
@@ -46,7 +44,7 @@ const pages = [
   ];
 
 
-const Header = ({badgeContent}) => {
+const Header = () => {
   const { auth } = useAuth();
   const { setAuth } = useContext(AuthContext);
   const {setVname, setKname} = useContext(UserContext);
@@ -54,9 +52,6 @@ const Header = ({badgeContent}) => {
 
   const navigate = useNavigate();
 
-
-  const {isCartOpen } = useContext(CartContext);
- 
     
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -125,7 +120,6 @@ const logout = async () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
               fontWeight: 600,
               letterSpacing: '.1rem',
               textDecoration: 'none',
@@ -207,22 +201,19 @@ const logout = async () => {
           </Typography>
           <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }} className='brandBox'>
             {pages.map((pag) => (
-              <Button
-                component={Link}
-                className='brandButton'
+              <MyButtonsmall
                 key={pag.url}
-                onClick={() => navigate(pag.url)} 
-                sx={{ my: 1, color: 'black', display: 'block' }}
+                onClick={() => navigate(pag.url)}
+                value={pag.page} 
+                sx={{ my: 1, color: 'black', display: 'block', fontFamily: 'Arima Madurai, curiseve, sans-serif' }}
                 
               >
                 {pag.page}
-              </Button>
+              </MyButtonsmall>
 
             ))}
           </Box>
           <CartIcon/>  
-                { isCartOpen && <CartDropdown/>}
-            
               {level ? (
             <div>
                  
@@ -232,7 +223,7 @@ const logout = async () => {
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleMenu} 
-                  sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', padding:0.5}}
+                  sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', padding:0.5}}
                 >
                   <AccountCircle/>
                 </IconButton>
@@ -270,7 +261,7 @@ const logout = async () => {
                 <IconButton
                 size="small"
                 onClick={registration} 
-                sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', marginLeft:1 , padding:0.5}} 
+                sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', marginLeft:1 , padding:0.5}} 
             >
                 <Tooltip title="Regisztráció">
             <HowToRegIcon/>
@@ -280,7 +271,7 @@ const logout = async () => {
           <IconButton
               size="small"
                 onClick={login} 
-                sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', marginLeft:1, padding:0.5}}
+                sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', marginLeft:1, padding:0.5}}
               >
                 <Tooltip 
                 title="Bejelentkezés">

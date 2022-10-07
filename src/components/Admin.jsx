@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import {MyButtonsmall}  from '../components/button/Buttoncomponents';
 import {getAllUsers} from '../api/getallaxios';
 import './admin.css';
 
@@ -76,7 +76,7 @@ return (
                 </Table>
             </TableContainer>
             <Stack spacing={2} direction='row'>
-                <Button className='btnadmin' variant='contained' onClick={() => allUser()} sx={{ margin:2 }}>Frissít</Button>
+                <MyButtonsmall onClick={() => allUser()} value='Frissítés'></MyButtonsmall>
             </Stack>
         </>
     )

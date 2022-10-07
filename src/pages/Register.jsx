@@ -6,6 +6,7 @@ import axios from '../api/axios';
 import './register.css';
 import { useNavigate} from "react-router-dom";
 import {Myinput, MyinputPassword}  from '../components/input/Myinput';
+import { MyButtonmedium } from '../components/button/Buttoncomponents';
 
 
 const REGISTER_URL = '/mezi_be/register/register.php';
@@ -79,6 +80,7 @@ const  Register = () => {
     const match = pwd === matchPwd;
     setValidMatch(match);
   }, [pwd, matchPwd]);
+  
 
   useEffect(() => {
     setErrMsg('');
@@ -192,7 +194,7 @@ const  Register = () => {
             onFocus={() => setVnameFocus(true)}
             onBlur={() => setVnameFocus(false)}
             />
-                <p id="vnamenote" className={vnameFocus && vname && !validVname ? "instructions" : "offscreen"}>
+                <p  id="vnamenote" className={vnameFocus && vname && !validVname ? "instructions" : "offscreen"}>
                 <FontAwesomeIcon  icon={faInfoCircle}  />
                 Elküldés előtt add meg az vezetékneved! <br/>
                 Minimum 2 karakter szükséges! <br/>
@@ -269,9 +271,9 @@ const  Register = () => {
                 A megadott jelszavak nem egyeznek!
           </p>
 
-          <button disabled={!validEmail || !validPwd || !validMatch || !validVname || !validKname? true : false} className='regBtn'>Regisztráció</button>
+          <MyButtonmedium disabled={!validEmail || !validPwd || !validMatch || !validVname || !validKname? true : false} className='regBtn' value='Regisztráció'>Regisztráció</MyButtonmedium>
       </form>
-            <p>
+            <p className='regInfo'>
                         Van már regisztrációd?<br />
                         <span className="line">
                         <Link onClick={()=> navigate('/login')} sx={{color:'white' , textDecorationColor:'white', cursor:'pointer'}}>Bejelentkezés</Link>

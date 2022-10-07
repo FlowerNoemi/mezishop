@@ -5,7 +5,7 @@ import React from 'react';
 import './home.css'
 import useAuth from "../hooks/useAuth";
 import Background from '../assets/bg.webp';
-
+import {MyButtonlarge, MyButtonmedium}  from '../components/button/Buttoncomponents';
 
 
 const Home = () => {
@@ -14,7 +14,7 @@ const Home = () => {
         backgroundSize:'cover',
         backgroundRepeat: "no-repeat",
         height:'88vh',
-       
+        loading:'lazy',
         backgroundPosition: '10% 110%',
         
       }
@@ -51,7 +51,7 @@ const Home = () => {
                 <Link to="/message">Üzenetek</Link>
             </div>
             <div className="adminBtn">
-                <button onClick={logout}>Kijelentkezés</button>
+                <MyButtonmedium onClick={logout} value="Kijelentkezés"></MyButtonmedium>
             </div>
 
             </section>
@@ -61,9 +61,10 @@ const Home = () => {
             <div className="hom1"> 
             <h1 className="homeh1">Üdvözöljük honlapunkon!</h1>
             <div className="homeBtnBox">
-                <button onClick={shop}  className="homeBtn">Irány a shop!</button>
+            <MyButtonlarge onClick={shop} value="Irány a shop"></MyButtonlarge>
             </div>
             </div>
+            
             </section>
             )}
             </div>

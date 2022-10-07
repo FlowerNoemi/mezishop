@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import {MyButtonsmall}  from '../components/button/Buttoncomponents';
 import {getAllMessage} from '../api/getmessage';
 import './message.css';
 
@@ -91,7 +91,7 @@ const Message = () => {
       </Table>
     </TableContainer>
     <Stack spacing={2} direction="row">
-        <Button className='btnadmin' variant="contained" onClick={() => allMessage()} sx={{ margin:2 }}>Frissít</Button>
+    <MyButtonsmall  onClick={() => allMessage()} value='Frissítés'></MyButtonsmall>
     </Stack>
     </>
   );

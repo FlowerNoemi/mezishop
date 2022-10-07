@@ -1,0 +1,114 @@
+button {
+    margin-top: 1rem;
+    padding: 0.25rem;
+    background: var(--primary-color);
+    font-weight:bolder;
+    border: #c5580a;
+}
+
+
+
+.largeButton {
+    border-radius: 10px;
+    height: 100px;
+    font-size: 36px;
+    cursor:pointer;
+    user-select: none;
+    -webkit-user-select: none;
+     -webkit-appearance: none;
+    touch-action: manipulation;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    transition: 0.5s;
+    background-size: 200% auto;
+    padding: 0.5rem;
+  
+}
+
+.largeButton:hover{
+background-position: right center;
+
+}
+
+.largeButton:active {
+    transform: scale(0.95);
+
+}
+
+.mediumButton {
+    border-radius: 10px;
+    width: 300px;
+    font-size: 22px;
+    margin: 5px;
+    font-size: 20px;
+    font-family: 'Arima Madurai', cursive, sans-serif;
+    cursor:pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    transition: 0.5s;
+    background-size: 200% auto;
+  
+  
+}
+
+.mediumButton:hover {
+    background-position: right center;
+
+}
+
+.mediumButton:active {
+    transform: scale(0.95);
+}
+
+
+
+.smallButton {
+    border-radius: 3px;
+    height: 40px;
+    width: 150px;
+    margin: 5px;
+    font-size: 20px;
+    cursor:pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    transition: 0.5s;
+    background-size: 200% auto;
+  
+  
+}
+
+.smallButton:hover {
+    background-position: right center;
+
+}
+
+.smallButton:active {
+    transform: scale(0.95);
+}
+
+.littleButton {
+    border-radius: 3px;
+    font-size: 20px;
+    cursor:pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    transition: 0.5s;
+    background-size: 200% auto;
+  
+  
+}
+
+.littleButton:hover  {
+    background-position: right center;
+
+}
+
+.littleButton:active {
+    transform: scale(0.95);
+}
+  

@@ -3,20 +3,28 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Badge from '@mui/material/Badge';
 import { CartContext } from '../../context/CartContext';
 import { useContext } from 'react';
-
+import { useNavigate} from 'react-router-dom';
 
 const CartIcon = () => {
-    const {isCartOpen, setIsCartOpen, cartCount} = useContext(CartContext);
+    const {cartCount} = useContext(CartContext);
+    const navigate = useNavigate();
+   
 
-    const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
+    const Back = () => {
+        navigate('/checkout');
+      }
 return (
         <IconButton 
             size='small' 
             aria-label='show 4 new mails' 
-            sx={{ color: 'black', background: 'linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 )', padding:0.5, marginRight:1}} 
-            onClick = {toggleIsCartOpen}>
-            <Badge badgeContent={cartCount} color='primary'>
+            sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', padding:0.5, marginRight:1}} 
+            onClick={Back}>
+            <Badge badgeContent={cartCount}  sx={{ 
+                '& 	.MuiBadge-badge': {
+                color: '#fafafa',
+                background: 'black'
+                }}}>
                 <ShoppingBasketIcon/>
             </Badge>
         </IconButton>                    

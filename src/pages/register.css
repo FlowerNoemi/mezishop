@@ -48,8 +48,11 @@ form {
 }
 
  
-p {
+.regInfo {
     margin-bottom: 0.8rem;
+    color: #000;
+    
+   
 }
 
 
@@ -61,21 +64,23 @@ label {
 
 .instructions {
     font-size: 0.75rem;
-    border-radius: 0.5rem;
-    background: #000;
-    
     padding: 0.25rem;
     position: relative;
-    bottom: -10px;
+    background-color: #000;
+    color: #fafafa;
+   
+    
 }
 
 .instructions > svg {
+
     margin-right: 0.25rem;
 }
 
 .offscreen {
     position: absolute;
     left: -9999px;
+   
 }
 
 .hide {
@@ -102,9 +107,6 @@ label {
 
 .line {
     display: inline-block;
+    color: #fafafa;
 }
 
-.regBtn {
-    font-weight: 700;
-    font-family: 'Arima Madurai', cursive, sans-serif;
-}

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap');
+.AppBar {
+    font-family: 'Arima Madurai, curiseve, sans-serif';
+}
 
 .BrandLogo {
     width: 1.5rem;
@@ -19,7 +23,8 @@
 
 .AppBar > .toolBarW > .toolbar >.brand {
    color: black;
-   font-family: 'Arima Madurai, curiseve, sans-serif';
+   font-family: 'Arima Madurai';
+
 }
 
 
@@ -35,7 +40,8 @@
     text-align: center;
     font-weight: 700;
     font-size: 85%;
-    font-family: 'Arima Madurai, curiseve, sans-serif';
+
+   
     
 }
 

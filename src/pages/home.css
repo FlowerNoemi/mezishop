@@ -34,15 +34,7 @@
 }
 
 
-.homeBtn {
-    background: var(--primary-color);
-    border: #c5580a;
-    font-weight:bolder;
-    height: 100px;
-    font-weight: 900;
-    font-size: 36px;
-    font-family: 'Arima Madurai', cursive, sans-serif;
-}
+
 
 .homeBtnBox {
     width: auto;

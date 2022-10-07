@@ -21,6 +21,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { useContext } from 'react';
 import {MyinputField}  from './input/Myinput';
 import {MyinputFieldArea}  from './input/Myinput';
+import { MyLittleButton } from './button/Buttoncomponents';
 
 const steps = [
   'Kosár',
@@ -98,15 +99,22 @@ const Basket = () => {
 
 return (
             <div>
-                <Box sx={{ width: '100%', mx:'auto', p:2}}>
-                    <Stepper activeStep={2} alternativeLabel >
-                    {steps.map((label) => (
-                        <Step key={label}   >
-                            <StepLabel >{label} </StepLabel>
-                        </Step>
-                    ))}
-                    </Stepper>
-                </Box>
+                    <Box sx={{ width: '100%', mx:'auto', p:2}}>
+                        <Stepper activeStep={2} alternativeLabel sx={{ 
+                        '& 	.MuiStepIcon-root.Mui-completed': {
+                        color: '#E18D00',
+                        }, 
+                        '& 	.MuiStepIcon-root': {
+                            color: '#E18D00',
+                        },
+                        }} >
+                        {steps.map((label) => (
+                            <Step key={label}   >
+                                <StepLabel >{label} </StepLabel>
+                            </Step>
+                        ))}
+                        </Stepper>
+                    </Box>
                 <>
                 <CssBaseline />
                 <Container maxWidth='xl'
@@ -276,8 +284,8 @@ return (
                         </Grid>
                     </Box>     
                         <div>
-                                <Button onClick={Back}> Vissza</Button>
-                                <Button onClick={Finish}> Tovább</Button>
+                                <MyLittleButton onClick={Back} value='Vissza'> </MyLittleButton>
+                                <MyLittleButton onClick={Finish} value='Tovább'> </MyLittleButton>
                         </div>
             </Container>
             </>

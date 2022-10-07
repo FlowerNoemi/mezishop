@@ -4,6 +4,7 @@ import axios from '../api/axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {Myinput}  from './input/Myinput';
+import { MyButtonsmall } from './button/Buttoncomponents';
 
 const PRODUCT_URL = '/mezi_be/product/newproduct.php';
 
@@ -155,7 +156,7 @@ const NewProduct = () => {
    
       </div>
       <div>
-      <button className='regBtn'>Küldés</button>
+      <MyButtonsmall className='regBtn' value='Küldés'></MyButtonsmall>
       </div>
     </Box>
     )
