@@ -1,6 +1,6 @@
 import axios from '../api/axios';
 
-const user_URL = '/mezi_be/api/alluser.php?search';
+const user_URL = '/mezi_be/api/alluser.php';
 
 export const getAllUsers = async () => {  
     const userData = await axios.get(user_URL)

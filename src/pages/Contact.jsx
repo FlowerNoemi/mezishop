@@ -174,7 +174,7 @@ return (
                                                 <CallIcon/>
                                             </Avatar>
                                         </ListItemAvatar>
-                                        <ListItemText primary="Hívjon!" secondary="+36307094447" />
+                                        <ListItemText primary="Hívjon bizalommal!" secondary="+36307774447" />
                                     </ListItem>
                                     <ListItem>
                                         <ListItemAvatar>
@@ -190,7 +190,7 @@ return (
                                                 <AddLocationIcon/>
                                             </Avatar>
                                         </ListItemAvatar>
-                                        <ListItemText primary="Látogasson meg minket!" secondary="4002, Debrecen Diószegi út 10" />
+                                        <ListItemText primary="Látogasson meg minket!" secondary="4002, Tesz-Vesz Teszt út 10" />
                                         </ListItem>
                                     </List>
                             </Stack>  

@@ -14,7 +14,7 @@ import Editor from './components/Editor';
 import Basket from './components/Basket';
 import Message from './components/Message';
 import Newproduct from './components/Newproduct'
-import Checkout from './pages/Checkout';
+import Checkout from './components/Checkout';
 import Finish from './components/Finish';
 import Layout from './components/Layout';
 const ROLES = {

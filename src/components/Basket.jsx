@@ -107,6 +107,9 @@ return (
                         '& 	.MuiStepIcon-root': {
                             color: '#E18D00',
                         },
+                        '& 	.MuiStepIcon-root.Mui-active': {
+                            color: '#E18D00',
+                        },
                         }} >
                         {steps.map((label) => (
                             <Step key={label}   >
