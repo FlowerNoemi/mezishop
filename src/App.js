@@ -17,6 +17,9 @@ import Newproduct from './components/Newproduct'
 import Checkout from './components/Checkout';
 import Finish from './components/Finish';
 import Layout from './components/Layout';
+import Change from './components/Change';
+
+
 const ROLES = {
     'User': '2000',
     'Admin': '2001'
@@ -27,28 +30,27 @@ function App() {
     <>
     	<Header/>
 		<Routes>
-			<Route path="/" element={<Home />}/>
-			<Route path="/login" element={<Login />} />
-			<Route path="/register" element={<Register />} />
-			<Route path="/unauthorized" element={<Unauthorized />} />
+			<Route path='/' element={<Home />}/>
+			<Route path='/login' element={<Login />} />
+			<Route path='/register' element={<Register />} />
+			<Route path='/unauthorized' element={<Unauthorized />} />
 			<Route path='/home' element={<Home/>}/>
 			<Route path='/termekek' element={<Termekek/>}/>
 			<Route path='/contact' element={<Contact/>}/>
-			<Route path='/basket' element={<Basket/>}/>
 			<Route path='/checkout' element={<Checkout/>}/>
-			<Route path='/finish' element={<Finish/>}/>
 			<Route path='/layout' element={<Layout/>}/>
 			<Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
 				<Route path='/profile' element={<Profile/>}/>
-
+				<Route path='/basket' element={<Basket/>}/>
+				<Route path='/finish' element={<Finish/>}/>
 				
 			</Route>
-
 			<Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>  
 				<Route path='/editor' element={<Editor/>}/>
-				<Route path="/admin" element={<Admin />} />
-				<Route path="/message" element={<Message />} />
-				<Route path="/new" element={<Newproduct />} />
+				<Route path='/admin' element={<Admin />} />
+				<Route path='/message' element={<Message />} />
+				<Route path='/new' element={<Newproduct />} />
+				<Route path='/change' element={<Change />} />
 			</Route>
     	</Routes>
 		<Footer/>

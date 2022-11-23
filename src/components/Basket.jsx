@@ -1,5 +1,5 @@
 
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -7,7 +7,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { useNavigate} from 'react-router-dom';
-import Button from '@mui/material/Button'
 import useAuth from '../hooks/useAuth';
 import {UserContext} from '../context/UserContext';
 import Radio from '@mui/material/Radio';
@@ -23,6 +22,8 @@ import {MyinputField}  from './input/Myinput';
 import {MyinputFieldArea}  from './input/Myinput';
 import { MyLittleButton } from './button/Buttoncomponents';
 
+
+
 const steps = [
   'Kosár',
   'Szállítás, Fizetés, Számlázás',
@@ -33,67 +34,106 @@ const steps = [
 const Basket = () => {
     const navigate = useNavigate();
     const { auth } = useAuth();
-    const {
-        vname, 
-        setVname,
-        vname2,
-        setVname2,  
-        kname, 
-        setKname, 
-        kname2,
-        setKname2,
-        iranyito,
-        setiranyito,
-        iranyito2,
-        setiranyito2,
-        varos,
-        setVaros,
-        varos2,
-        setVaros2,
-        cim,
-        setCim,
-        cim2,
-        setCim2,
-        telefon,
-        setTelefon,
-        telefon2,
-        setTelefon2,
-        comment,
-        setComment,
-        comment2,
-        setComment2,
-        fizetes,
-        setFizetes,
-        adoszam,
-        setAdoszam,
-        EUadoszam,
-        setEUadoszam,
-        szallitas,
-        setSzallitas,
-        adozo,
-        setAdozo
-    
-        } = useContext(UserContext);
-    const [email] = useState(auth.email);
+    const {userData, setUserData} = useContext(UserContext);
+    const [email, setEmail] = useState(auth.email);
+    const [vname, setVname] = useState(auth.vname);
+    const [vname2, setVname2] = useState('');
+    const [kname, setKname] = useState(auth.kname);
+    const [kname2, setKname2] = useState('');
+
+    const [iranyito, setiranyito] = useState(auth.iranyito);
+    const [iranyito2, setiranyito2] = useState('');
+
+    const [varos, setVaros] = useState(auth.varos);
+    const [varos2, setVaros2] = useState('');
+
+    const [cim, setCim] = useState(auth.cim);
+    const [cim2, setCim2] = useState('');
+
+    const [telefon, setTelefon] = useState(auth.telefonszam);
+    const [telefon2, setTelefon2] = useState('');
+
+    const [comment, setComment] = useState('');
+    const [comment2, setComment2] = useState('');
+
+    const [adoszam, setAdoszam] = useState('');
+    const [EUadoszam, setEUAdoszam] = useState('');
+
+    const [adozo, setAdozo] = useState('');
+    const [szallitas, setSzallitas] = useState(true);
+    const [fizetes, setFizetes] = useState('');
+
     const [checkbox, setCheckBox] = useState(true);
     
     const Back = () => {
       navigate('/checkout');
     }
+
     const Finish = () => {
-        
+    setUserData({vname:vname, email:email, vname2:vname2, kname:kname, kname2:kname2, iranyito:iranyito , iranyito2:iranyito2, varos:varos, varos2:varos2,cim:cim, cim2:cim2,telefon:telefon,telefon2:telefon2, comment:comment, comment2:comment2, adoszam:adoszam, EUadoszam:EUadoszam, adozo:adozo, szallitas:szallitas, fizetes:fizetes});
+
+    console.log(userData);   
     navigate('/finish');
+   
     }
 
     const chek = () => {
     if(checkbox) {
         setCheckBox(false);
+        setVname2(vname);
+        setKname2(kname);
+        setCim(cim);
         console.log(checkbox);
+       
     } else {
         setCheckBox(true);
         console.log(checkbox);
     }
     }
+
+    useEffect(() => {
+        if(userData.vname) {
+            setVname(userData.vname);
+        }
+        if(userData.vname2) {
+          setVname2(userData.vname2);
+        }
+        if(userData.kname) {
+            setKname(userData.kname);
+        }
+        if(userData.kname2) {
+            setKname2(userData.kname2);
+        }
+        if(userData.iranyito) {
+            setiranyito(userData.iranyito);
+        }
+        if(userData.iranyito2) {
+            setiranyito2(userData.iranyito2);
+        }
+        if(userData.cim) {
+            setCim(userData.cim);
+        }
+        if(userData.cim2) {
+            setCim2(userData.cim2);
+        }
+
+
+
+
+
+
+
+        if(userData.comment) {
+            setComment(userData.comment);
+        }
+        }, [userData.vname, userData.vname2, userData.kname, userData.iranyito, userData.iranyito2, userData.cim, userData.cim2,  userData.kname2, userData.comment ]);
+
+
+
+    
+
+        
+
 
     
 
@@ -123,14 +163,14 @@ return (
                 <Container maxWidth='xl'
                 className='container'>
                     <Box
-                        component='form'
+               
                         className='boxbasket'
                         autoComplete='off'
-                        sx={{mx:'auto', p:1
-                        }}>
+                        >
                         <div>
                             <MyinputField
                             value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             label='E-mail cím'
                             variant='standard'
                             />
@@ -173,7 +213,7 @@ return (
                                 <FormLabel id='demo-radio-buttons-group-label'>Szállítási adatok</FormLabel>
                                     <div>
                                         <MyinputField
-                                            label='Vezetéknév' 
+                                            label='Vezetéknév'
                                             value={vname}
                                             onChange={(e) => setVname(e.target.value)}
                                         />
@@ -217,16 +257,16 @@ return (
                             </Grid>
                             <Grid item xs={6}>
                                 <FormLabel id='demo-radio-buttons-group-label'>Számlázási adatok</FormLabel>
-                                    <FormControlLabel control={<Checkbox onClick={chek}/>} label='Számálázási adatok megegyeznek a szállítási adatokkal' />
+                                    <FormControlLabel control={<Checkbox onClick={chek}/>} label='Számlázási adatok megegyeznek a szállítási adatokkal' />
                                     <div>
                                         <MyinputField
                                             label='Vezetéknév' 
-                                            value={!checkbox ? vname : vname2}
+                                            value={vname2}
                                             onChange={(e) => setVname2(e.target.value)}
                                         />
                                         <MyinputField
                                             label='Keresztnév' 
-                                            value={!checkbox ? kname : kname2}
+                                            value={kname2}
                                             onChange={(e) => setKname2(e.target.value)}
                                         />
                                     </div>
@@ -283,13 +323,13 @@ return (
                                                 onChange={(e) => setComment2(e.target.value)}
                                         />
                                     </div>
+                                    
                             </Grid>
+
+                            <MyLittleButton onClick={Back} value='Vissza'> </MyLittleButton>
+                            <MyLittleButton onClick={Finish} value='Tovább'> </MyLittleButton>
                         </Grid>
-                    </Box>     
-                        <div>
-                                <MyLittleButton onClick={Back} value='Vissza'> </MyLittleButton>
-                                <MyLittleButton onClick={Finish} value='Tovább'> </MyLittleButton>
-                        </div>
+                    </Box>
             </Container>
             </>
         </div>

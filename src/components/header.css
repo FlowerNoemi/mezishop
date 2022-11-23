@@ -3,35 +3,33 @@
     font-family: 'Arima Madurai, curiseve, sans-serif';
 }
 
+.fixbox {
+    margin: 10px;
+}
+
 .BrandLogo {
     width: 1.5rem;
     padding: 1px;
 }
 
-
-
 .toolBar {
     background: var(--primary-color);
-    
+   
 }
 
 .toolBarW {
         background: white;  
 }
 
-
-
 .AppBar > .toolBarW > .toolbar >.brand {
-   color: black;
+   color: #503201;
    font-family: 'Arima Madurai';
 
 }
 
-
-
 .AppBar > .toolBarW > .toolbar >.brandBox > .brandButton {
     text-transform: none;
-    color: black;
+  
     background: var(--primary-color);
     margin: 10px;
     width: 135px;
@@ -39,9 +37,6 @@
     padding: 0px;
     text-align: center;
     font-weight: 700;
-    font-size: 85%;
-
-   
-    
+    font-size: 85%;  
 }
 

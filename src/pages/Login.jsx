@@ -13,7 +13,7 @@ const Login = () => {
     const { setAuth } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/home";
+    const from = location.state?.from?.pathname || '/home';
     const errRef = useRef();
     const [email, setEmail] = useState('');
     const [pwd, setPwd] = useState('');
@@ -44,9 +44,14 @@ const handleSubmit = async (e) => {
             const roles = response?.data?.roles;
             const kname = response?.data?.kname;
             const vname = response?.data?.vname;
+            const iranyito = response?.data?.iranyito;
+            const varos = response?.data?.varos;
+            const cim = response?.data?.cim;
+            const telefonszam = response?.data?.telefonszam;
+            const id = response?.data?.id;
             console.log(roles);
             console.log(kname);
-            setAuth({ email, pwd, roles, accessToken,kname,vname });
+            setAuth({ email, pwd, roles, accessToken,kname,vname,id, iranyito, varos, cim, telefonszam });
             navigate(from , { replace: true });
             setEmail('');
             setPwd('');
@@ -70,20 +75,20 @@ return (
             <div className='logDiv'>
                 <div className='imgBox'>
                     <h1 className='logh1'>Bejelentkezés</h1>
-                        <img src={loginlogo} loading='lazy' alt="" className='imgLogo' />
+                        <img src={loginlogo} loading='lazy' alt='Mézishop logó' title='Mézishop logó' className='imgLogo' />
                         <p className='logP'>Még nem regisztrált?<br />
-                            <span className="line">
-                                <Link to="/register">Regisztráció</Link>
+                            <span className='line'>
+                                <Link to='/register'>Regisztráció</Link>
                             </span>
                         </p>
                 </div>
                 <section className='logBox'>
-                <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                <p ref={errRef} className={errMsg ? 'errmsg' : 'offscreen'} aria-live='assertive'>{errMsg}</p>
                     <form onSubmit={handleSubmit}>
                         
                         <Myinput
-                            type="email"
-                            id="email"
+                            type='email'
+                            id='email'
                             label='E-mail cím:'
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
@@ -95,7 +100,6 @@ return (
                             value={pwd}
                             required
                         />
-                       
                         <div className='btnBox'>
                         <MyButtonmedium className='loginBtn' value='Bejelentkezés'></MyButtonmedium>
                         </div>

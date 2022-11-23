@@ -15,7 +15,6 @@ button {
     cursor:pointer;
     user-select: none;
     -webkit-user-select: none;
-     -webkit-appearance: none;
     touch-action: manipulation;
     box-shadow: 0px 0px 14px -7px #f09819;
     transition: 0.5s;
@@ -26,12 +25,10 @@ button {
 
 .largeButton:hover{
 background-position: right center;
-
 }
 
 .largeButton:active {
     transform: scale(0.95);
-
 }
 
 .mediumButton {
@@ -47,21 +44,16 @@ background-position: right center;
     touch-action: manipulation;
     box-shadow: 0px 0px 14px -7px #f09819;
     transition: 0.5s;
-    background-size: 200% auto;
-  
-  
+    background-size: 200% auto; 
 }
 
 .mediumButton:hover {
     background-position: right center;
-
 }
 
 .mediumButton:active {
     transform: scale(0.95);
 }
-
-
 
 .smallButton {
     border-radius: 3px;
@@ -76,13 +68,10 @@ background-position: right center;
     box-shadow: 0px 0px 14px -7px #f09819;
     transition: 0.5s;
     background-size: 200% auto;
-  
-  
 }
 
 .smallButton:hover {
     background-position: right center;
-
 }
 
 .smallButton:active {
@@ -99,13 +88,10 @@ background-position: right center;
     box-shadow: 0px 0px 14px -7px #f09819;
     transition: 0.5s;
     background-size: 200% auto;
-  
-  
 }
 
 .littleButton:hover  {
     background-position: right center;
-
 }
 
 .littleButton:active {

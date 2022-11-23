@@ -1,4 +1,4 @@
-import { createContext , useState, useEffect} from "react";
+import { createContext , useState, useEffect} from 'react';
 import {getAllProduct} from '../api/getallproduct';
 
 export const ProductContext = createContext({
@@ -7,24 +7,22 @@ export const ProductContext = createContext({
 
 export const ProductsProvider = ({children}) =>{
     const [products, setProducts] = useState(['']);
-    const allProduct = async () => {
-        try {
-          const dataRequest = await  getAllProduct();
-          console.log(dataRequest)
-          setProducts(dataRequest);
-          
-          } catch(e) {
-          console.log('error message : ', e);
-          }
-      };
+const allProduct = async () => {
+    try {
+        const dataRequest = await  getAllProduct();
+            console.log(dataRequest)
+            setProducts(dataRequest);
+    } catch(e) {
+            console.log('error message : ', e);
+    }
+};
     
-      useEffect(() => {
-        
-        allProduct();    
-    } , [] 
-    );
+useEffect(() => {
+    allProduct();    
+} , []);
 
-    const value = {products};
+const value = {products, setProducts};
+
 return (
         <ProductContext.Provider value = {value}> {children}</ProductContext.Provider>
 ) 

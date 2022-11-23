@@ -9,11 +9,10 @@ const CartIcon = () => {
     const {cartCount} = useContext(CartContext);
     const navigate = useNavigate();
    
+const Back = () => {
+    navigate('/checkout');
 
-
-    const Back = () => {
-        navigate('/checkout');
-      }
+}
 return (
         <IconButton 
             size='small' 

@@ -6,12 +6,10 @@
   min-height: 100vh;
   padding: 1rem 0.5rem;
   margin-top: 1rem;
-
 }
 
 
 .regSection {
-    
     width: 100%;
     max-width: 420px;
     min-height: 400px;
@@ -19,10 +17,8 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
-
     opacity: 98%;
     border-radius: 20px;
-
 }
 
 .regSuccses {
@@ -51,14 +47,11 @@ form {
 .regInfo {
     margin-bottom: 0.8rem;
     color: #000;
-    
-   
 }
 
 
 label {
     color: #000;
-   
 }
 
 
@@ -68,19 +61,15 @@ label {
     position: relative;
     background-color: #000;
     color: #fafafa;
-   
-    
 }
 
 .instructions > svg {
-
     margin-right: 0.25rem;
 }
 
 .offscreen {
     position: absolute;
     left: -9999px;
-   
 }
 
 .hide {

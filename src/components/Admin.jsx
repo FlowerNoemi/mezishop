@@ -16,40 +16,39 @@ const Admin = () => {
     const [users, setUsers] = useState(['']);
 
 
-    const StyledTableCell = styled(TableCell)(({ theme }) => ({
-        [`&.${tableCellClasses.head}`]: {
-        background: 'rgb(239,165,65)',
+const StyledTableCell = styled(TableCell)(() => ({
+    [`&.${tableCellClasses.head}`]: {
+        background: '#E8C07A',
         color: 'black',
-        },
-        [`&.${tableCellClasses.body}`]: {
+    },
+    [`&.${tableCellClasses.body}`]: {
         fontSize: 13,
-        },
-    }));
+    },
+}));
   
-    const StyledTableRow = styled(TableRow)(({ theme }) => ({
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
-    },
+},
     
-        '&:last-child td, &:last-child th': {
+    '&:last-child td, &:last-child th': {
     border: 1,
     },
-    }));
+}));
   
-  
-    const allUser = async () => {
-        try {
-            const userRequest = await  getAllUsers();
+const allUser = async () => {
+    try {
+        const userRequest = await  getAllUsers();
             console.log(userRequest)
             setUsers(userRequest); 
-        } catch(e) {
+    } catch(e) {
             console.log('error message : ', e);
-        }
-    };
+    }
+};
 
-    useEffect(() => {
-        allUser();    
-    } , []);
+useEffect(() => {
+    allUser();    
+} , []);
 
 return (
         <>
@@ -75,8 +74,8 @@ return (
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Stack spacing={2} direction='row'>
-                <MyButtonsmall onClick={() => allUser()} value='Frissítés'></MyButtonsmall>
+            <Stack spacing={2} direction='row' marginBottom='50px'>
+                <MyButtonsmall  onClick={() => allUser()} value='Frissítés'></MyButtonsmall>
             </Stack>
         </>
     )

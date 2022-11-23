@@ -1,24 +1,17 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import BottomNavigation from '@mui/material/BottomNavigation';
+import flowerNoemi from '../assets/fn.webp';
+import './footer.css';
 
 
 const  Footer = () => {
-  const [value, setValue] = React.useState(0);
+
 
   return (
-    <Box sx={{ width: 100 }}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-
-      </BottomNavigation>
-    </Box>
-  );
+		<div className='footerBox'>
+				<p className='copy'><sup>&copy;</sup> 2022</p>
+				<img src={flowerNoemi} loading='lazy' alt='FlowerNoemi logó' title='FlowerNoemi logó' className='logoFlowerNoemi' />
+		</div>
+  	);
 }
 
 export default Footer;

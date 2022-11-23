@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,15 +14,15 @@ import Link from '@mui/material/Link';
 import {MyButtonsmall}  from '../components/button/Buttoncomponents';
 import { CartContext } from '../context/CartContext';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import { useNavigate} from "react-router-dom";
-import useAuth from "../hooks/useAuth";
-import { useContext } from "react";
+import { useNavigate} from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import { useContext } from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import Tooltip from '@mui/material/Tooltip';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import CartIcon from './button/Cart-iconcomponents';
 import {UserContext  } from '../context/UserContext';
-import AuthContext from "../context/AuthProvider";
+import AuthContext from '../context/AuthProvider';
 
 
 const pages = [
@@ -41,17 +41,18 @@ const pages = [
 ];
 
 const Header = () => {
-  const { auth } = useAuth();
-  const { setAuth } = useContext(AuthContext);
-  const {setVname, setKname} = useContext(UserContext);
-  const { clearFromCart } = useContext(CartContext);
+    const { auth } = useAuth();
+    const { setAuth } = useContext(AuthContext);
+    const {setUserData} = useContext(UserContext);
+    const { clearFromCart } = useContext(CartContext);
+    
+    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
     
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
+ 
 const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
 };
@@ -60,9 +61,7 @@ const handleCloseNavMenu = () => {
     setAnchorElNav(null);
 };
 
- 
 const level = auth?.roles?.find(role => role.includes('2000'))
-
 
 const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -85,25 +84,24 @@ const profil = () => {
 }
 
 const logout = async () => {
-      setAuth({});
-      setVname('');
-      setKname('');
-      clearFromCart();
-      navigate('/home');
+        setAuth({});
+        setUserData({});
+        clearFromCart();
+        navigate('/home');
 }
 
 return (
-    <AppBar position="static" className='AppBar' >
-        <Container maxWidth="xxl" className='toolBar'> <img src={Bee} alt='MéziShop' title='MéziShop'className='BrandLogo' sx={{ display: { xs: 'none', md: 'flex'}   }}/>
+    <AppBar position='static' className='AppBar' >
+        <Container maxWidth='xxl' className='toolBar'> <img src={Bee} alt='MéziShop' title='MéziShop'className='BrandLogo' sx={{ display: { xs: 'none', md: 'flex'}}}/>
         </Container>
-        <Container maxWidth="xxl" className='toolBarW'>
+        <Container maxWidth='xxl' className='toolBarW' >
             <Toolbar disableGutters className='toolbar' >
                 <Typography
-                    className="brand"
-                    variant="h6"
+                    className='brand'
+                    variant='h6'
                     noWrap
-                    component="a"
-                    to="/"
+                    component='a'
+                    to='/'
                     sx={{
                     mr: 2,
                     display: { xs: 'none', md: 'flex' },
@@ -111,21 +109,22 @@ return (
                     letterSpacing: '.1rem',
                     textDecoration: 'none',
                     marginLeft:2,
+                    color: '#7F4E18'
                     }}
                     onClick={() => navigate('/home')}>
                     MéziShop
                 </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} >
                 <IconButton
-                size="small"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
+                size='small'
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
                 onClick={handleOpenNavMenu}>
                     <MenuIcon  sx={{color:'black'}} />
                 </IconButton>
                 <Menu
-                    id="menu-appbar"
+                    id='menu-appbar'
                     anchorEl={anchorElNav}
                     anchorOrigin={{
                         vertical: 'bottom',
@@ -141,7 +140,7 @@ return (
                 {pages.map((pag) => (
                     <MenuItem key={pag.page} onClick={handleCloseNavMenu} sx={{ textAlign: 'center' , }} component={Link}>
                     <Typography  
-                        sx={{ color: 'black', fontFamily: 'Arima Madurai, curiseve, sans-serif'}} 
+                        sx={{ color: 'black', fontFamily: 'Arima Madurai, sans-serif'}} 
                         onClick={(e) => navigate(pag.url)}>
                             {pag.page}
                     </Typography>
@@ -149,10 +148,10 @@ return (
                 </Menu>
             </Box>
                     <Typography
-                        className="brand"
-                        variant="h6"
+                        className='brand'
+                        variant='h6'
                         noWrap
-                        component="a"
+                        component='a'
                         sx={{
                         mr: 1,
                         display: { xs: 'flex', md: 'none' },
@@ -162,36 +161,35 @@ return (
                         letterSpacing: '.1rem',
                         textDecoration: 'none',
                         marginRight:0,
-                        fontSize:'inherit'
-                        }}
+                        fontSize:'inherit',}}
                         onClick={() => navigate('/home')}>
                             MéziShop
                     </Typography>
-                <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }} className='brandBox'>
-                    {pages.map((pag) => (
+            <Box sx={{ flexGrow: 1,  display: { xs: 'none', md: 'flex' } }} className='brandBox'>
+                {pages.map((pag) => (
                     <MyButtonsmall
                         key={pag.url}
                         onClick={() => navigate(pag.url)}
                         value={pag.page} 
-                        sx={{ my: 1, color: 'black', display: 'block', fontFamily: 'Arima Madurai, curiseve, sans-serif' }}>
+                        sx={{ my: 1, display: 'block', fontFamily: 'Arima Madurai,  sans-serif',  }}>
                         {pag.page}
                     </MyButtonsmall>
                 ))}
                 </Box>
                 <CartIcon/>  
-              {level ? (
+            {level ? (
                 <div>
                     <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
+                    size='large'
+                    aria-label='account of current user'
+                    aria-controls='menu-appbar'
+                    aria-haspopup='true'
                     onClick={handleMenu} 
                     sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', padding:0.5}}>
                         <AccountCircle/>
                     </IconButton>
                 <Menu
-                    id="menu-appbar"
+                    id='menu-appbar'
                     anchorEl={anchorEl}
                     anchorOrigin={{
                     vertical: 'top',
@@ -212,24 +210,24 @@ return (
                     </MenuItem>
                 </Menu>
               </div>
-              ) : (
+            ) : (
             <div className='iconBox'>
                 <IconButton
-                    size="small"
+                    size='small'
                     onClick={registration} 
                     sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', marginLeft:1 , padding:0.5}}>
-                    <Tooltip title="Regisztráció">
+                    <Tooltip title='Regisztráció'>
                         <HowToRegIcon/>
                     </Tooltip>
                 </IconButton>
                 <IconButton
-                    size="small"
+                    size='small'
                     onClick={login} 
                     sx={{ color: 'black', background: 'linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%)', 
                     marginLeft:1, 
                     padding:0.5}}>
                     <Tooltip 
-                        title="Bejelentkezés">
+                        title='Bejelentkezés'>
                     <LoginIcon />
                     </Tooltip>
                 </IconButton>
@@ -237,6 +235,6 @@ return (
         </Toolbar>
       </Container>
     </AppBar>
-  );
+    );
 };
 export default Header;

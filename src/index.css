@@ -1,8 +1,5 @@
 
-
-
 :root {
-    
     --primary-color2: linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 );
     --primary-color:linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%);
     --secondary-color: linear-gradient(to right, #D69967, #c5580a);
@@ -20,7 +17,7 @@
 html {
     font-family: 'Arima Madurai', sans-serif;
     font-size: 22px;
-
+    color: #503201;
 }
 
 

@@ -1,0 +1,52 @@
+.backgroundNew {
+    background-color: #fabf6127;
+    min-height: 88vh; 
+    padding-top: 20px;
+
+}
+.errmsgNewProduct {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.05rem;
+    width: 348px;
+    border-radius: 8px;
+}
+.offscreenNewProduct {
+    position: absolute;
+    left: -9999px;
+}
+
+.NewProductSuccses {
+    text-align: center;
+    padding: 20px;
+    background:  #e8c07a60;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 350px;
+    border: 1px solid  #dca64780;
+    box-shadow: 4px 8px #dca64780;
+    border-radius: 10px;
+    border-top: 5px solid #CC7F06;
+}
+
+.newBox {
+    display: flex;
+    flex-wrap: wrap;
+    background:  #e8c07a60;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 350px;
+    border: 1px solid  #dca64780;
+    box-shadow: 4px 8px #dca64780;
+    border-radius: 10px;
+    border-top: 5px solid #CC7F06;  
+}
+
+.inputFile {
+    background:  #e8c07a60;
+}
+

@@ -1,0 +1,83 @@
+.backgroundContact {
+    background-color: #fabf6127;
+    min-height: 84vh;
+    padding: 8px;
+    margin-bottom: 50px;
+}
+
+ .ContactDiv {
+ display: flex;
+ flex-wrap: wrap;
+ margin: 0 auto;
+ max-width: 800px;
+ border: 1px solid  #dca64780;
+ box-shadow: 4px 8px #dca64780;
+ border-radius: 10px;
+ border-top: 5px solid #CC7F06;
+}
+ 
+ 
+@media (max-width: 800px) {
+    .logBox , .imgBoxContact {
+       	flex: 100%;
+	}
+    .backgroundContact {
+      	padding: 8px;
+         
+    }
+}
+
+.imgBoxContact {
+   flex: 40%;
+}
+
+.imgLogoContact {
+     float: none;
+     width: 70%;
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
+    border-radius: 10px;
+}
+
+ .contactBox {
+    flex: 50%;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 20px;
+    background:  #e8c07a60;
+}
+
+.contactContainer {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 2px auto;
+	width: 1000px;
+  	border: 1px solid  #dca64780;
+  	box-shadow: 4px 8px #dca64780;
+  	border-radius: 10px;
+  	border-top: 5px solid #CC7F06;
+}
+
+.ContactDivCont1 {
+  flex: 60%;
+}
+
+.ContactDivCont2 {
+    flex: 40%;
+    background:  #e8c07a60;
+    padding-left: 10px;
+}
+
+@media (max-width: 800px) {
+	.ContactDivCont1, .ContactDivCont2 {
+	  	flex: 100%;
+	}
+	.contactContainer {
+		width: 100%;
+	}
+}
+
+.Contacth1 {
+  text-align: center;
+}

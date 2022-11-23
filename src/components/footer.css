@@ -1,0 +1,19 @@
+.logoFlowerNoemi {
+    height: 42px;
+    float: left;
+
+}
+
+.copy {
+   display: inline-flex;
+   font-size: 16px;
+}
+
+.footerBox {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 0.2rem;
+}

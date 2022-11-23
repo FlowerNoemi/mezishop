@@ -1,0 +1,70 @@
+.backgroundChange {
+    background-color: #fabf6127; 
+    width: 400px;
+    margin: 2px auto;
+    padding: 2px 2px;
+    
+}
+
+.listBox {
+  height: 45px;
+  margin-bottom: 15px;
+}
+
+.checkBoxParag {
+    font-size: 16px;
+    display: inline;
+}
+
+.errmsgChangeProduct {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.05rem;
+    width: 400px;
+    border-radius: 8px;
+    text-align: center;   
+}
+
+.offscreenChangeProduct {
+    position: absolute;
+    left: -9999px;
+}
+
+.ChangeBox {
+    display: flex;
+    flex-wrap: wrap;
+    background:  #e8c07a60;
+    margin: 55px auto;
+    padding: 5px;
+    text-align: center;
+    max-width: 350px;
+    border: 1px solid  #dca64780;
+    box-shadow: 4px 8px #dca64780;
+    border-radius: 10px;
+    border-top: 5px solid #CC7F06;  
+}
+
+.inputChangeFile {
+    background:  #e8c07a60;
+}
+
+
+.changeImage {
+    width: 56px;
+}
+
+.successChangeProduct{
+    background-color: #e1ffb6;
+    color: #033210;
+    font-weight: bold;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.05rem;
+    width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+

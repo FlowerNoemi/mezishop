@@ -1,62 +1,48 @@
 
 .cards{
     background: var(--primary-color);
-    display: flex;
-    float: left;
-    margin: 10px 20px;
+    margin: 10px 15px;
     padding: 15px;
-    align-items: center;
-    min-width:max-content;
+    
 
 }
-
-
 .post {
-    width: 200px;
+    width: 300px;
     height: 400px;
-    box-sizing: border-box;
+    margin-left: auto;
 }
 
-.post-img{
-    height: 70%;
-    
+.post-img {
+    height: 50%;
+    border-radius:  5px 5px 0px 0px;
     box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.12);
-
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.post-content{
-    background: white;
-    border: 1px solid #42464a ;
-    transform: translateY(-60px);
-
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+.post-content {
+    background: rgba(255, 255, 255, 0.69);
+    border-radius: 0px 0px 10px;
     height: 150px;
-    
 }
 
-h4{
+h4 {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 400;
 }
 
-
 .card-title {
-    background-color: aliceblue;
-    height: 40px;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 5px;
 }
 
-
-
-.card-title h2{
-    color: #42464a;
-    font-size: 18px;
+.card-title h2 {
+    font-size: 24px;
     margin-bottom: 10px;
     text-transform: capitalize;
 }
-.ar{
-    color: #999;
-    font-size: 12px;
+.ar {
+    font-size: 18px;
     text-transform: uppercase;
 }
