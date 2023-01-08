@@ -1,23 +1,31 @@
-
 :root {
-    --primary-color2: linear-gradient(to right, #E8C07A, #E18D00,#CC7F06,#B86104 );
-    --primary-color:linear-gradient(45deg, #E18D00 0%, #E8C07A  51%, #E18D00  100%);
-    --secondary-color: linear-gradient(to right, #D69967, #c5580a);
+  --primary-color2: linear-gradient(
+    to right,
+    #e8c07a,
+    #e18d00,
+    #cc7f06,
+    #b86104
+  );
+  --primary-color: linear-gradient(
+    45deg,
+    #e18d00 0%,
+    #e8c07a 51%,
+    #e18d00 100%
+  );
+  --secondary-color: linear-gradient(to right, #d69967, #c5580a);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arima Madurai', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arima Madurai", sans-serif;
 }
 
 html {
-    font-family: 'Arima Madurai', sans-serif;
-    font-size: 22px;
-    color: #503201;
+  font-family: "Arima Madurai", sans-serif;
+  font-size: 22px;
+  color: #503201;
 }
-
-

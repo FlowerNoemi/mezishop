@@ -1,63 +1,60 @@
 .checkout-item-container {
-    width: 100%;
-    display: flex;
-    border-bottom: 1px solid darkgrey;
-    padding: 10px 0;
-    font-size: 20px;
-    align-items: center;
-    color: black;
-    background-color: #e8c07a60;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid darkgrey;
+  padding: 10px 0;
+  font-size: 20px;
+  align-items: center;
+  color: black;
+  background-color: #e8c07a60;
 }
 
 .image-container {
-      width: 25%;
-      padding: 5px;
-      height: 150px;
-    
-      
-} 
-.name,.quantity,.price {
-      width: 23%;
+  width: 25%;
+  padding: 5px;
+  height: 150px;
 }
-  
+.name,
+.quantity,
+.price {
+  width: 23%;
+}
+
 .quantity {
- display: flex; 
+  display: flex;
 }
 
 .arrow {
-    cursor: pointer;   
+  cursor: pointer;
 }
 
 .value {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .remove-button {
-      padding-left: 12px;
-      cursor: pointer;
+  padding-left: 12px;
+  cursor: pointer;
 }
 
 .checkoutImg {
-    text-align: center;
-    height: 150px;
-    float: left;
-
+  text-align: center;
+  height: 150px;
+  float: left;
 }
 
 @media (max-width: 800px) {
-    .checkout-item-container  {
-        display: table-column;
-        text-align: left;
-
-       
-}
-    .image-container  {
-        float: left;
-        margin-right: 20px;
-        margin-top: 10px;
-    }
-    .checkoutImg {
-        width: 50px;
-        height: auto;
-    }
+  .checkout-item-container {
+    display: table-column;
+    text-align: left;
+  }
+  .image-container {
+    float: left;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .checkoutImg {
+    width: 50px;
+    height: auto;
+  }
 }

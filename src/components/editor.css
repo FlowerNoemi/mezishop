@@ -1,53 +1,53 @@
 .backgroundEditor {
-    background-color: #fabf6127;
-    min-height: 88vh; 
-    padding-top: 50px;
+  background-color: #fabf6127;
+  min-height: 88vh;
+  padding-top: 50px;
 }
 
 .editorBox {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    max-width: 800px;
-    border: 1px solid  #dca64780;
-    box-shadow: 4px 8px #dca64780;
-    border-radius: 10px;
-    border-top: 5px solid #CC7F06;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+  text-align: center;
 }
-    
 
 @media (max-width: 800px) {
-    .editorBox , .imgBoxEditor {
-        flex: 100%;
-    }
-    .backgroundEditor {
-        min-height: 100vh; 
-        padding: 8px;  
-    }
+  .editorBox,
+  .imgBoxEditor {
+    flex: 100%;
+  }
+  .backgroundEditor {
+    min-height: 100vh;
+    padding: 8px;
+  }
 }
 
 .imgBoxEditor {
-    flex: 50%;
+  flex: 50%;
 }
 
-.imgLogoEditor{
-    float: none;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 10px; 
+.imgLogoEditor {
+  float: none;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 10px;
 }
 
 .editorSection {
-    flex: 50%;
-    justify-content: flex-start;
-    background:  #e8c07a60;
-    padding-top: 20px;
+  flex: 50%;
+  justify-content: flex-start;
+  background: #e8c07a60;
+  padding-top: 20px;
 }
 
 .editorh1 {
-    font-size: 26px;
-    margin-top: 5px;
+  font-size: 26px;
+  margin-top: 5px;
 }

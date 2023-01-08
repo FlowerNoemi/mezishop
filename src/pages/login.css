@@ -1,68 +1,69 @@
 .backgroundlog {
-   background-color: #fabf6127;
-    min-height: 88vh; 
-    padding-top: 70px;
+  background-color: #fabf6127;
+  min-height: 88vh;
+  padding-top: 70px;
 }
 
 .logDiv {
-display: flex;
-flex-wrap: wrap;
-margin: 0 auto;
-max-width: 800px;
-border: 1px solid  #dca64780;
-box-shadow: 4px 8px #dca64780;
-border-radius: 10px;
-border-top: 5px solid #CC7F06;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
 }
 
 @media (max-width: 800px) {
-    .logBox , .imgBox {
-      flex: 100%;
-    }
-    .backgroundlog {
-        min-height: 100vh; 
-        padding: 8px;  
-    }
+  .logBox,
+  .imgBox {
+    flex: 100%;
+  }
+  .backgroundlog {
+    min-height: 100vh;
+    padding: 8px;
+  }
 }
 
 .logBox {
-    flex: 50%;
-    justify-content: flex-start;
-    width: 290px;
-    padding: 10px;
-    background:  #e8c07a60;
-    margin: 0 auto;
-    padding-top: 50px; 
+  flex: 50%;
+  justify-content: flex-start;
+  width: 290px;
+  padding: 10px;
+  background: #e8c07a60;
+  margin: 0 auto;
+  padding-top: 50px;
 }
 
 .imgBox {
   flex: 50%;
 }
 
-.imgLogo{
-    float: none;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border-radius: 10px;   
+.imgLogo {
+  float: none;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 10px;
 }
 
-a, a:visited {
-    color: #000;
+a,
+a:visited {
+  color: #000;
 }
 
 .logh1 {
-    text-align: center;
-    font-size: 26px;
-    margin-top: 5px;
+  text-align: center;
+  font-size: 26px;
+  margin-top: 5px;
 }
 
 .logP {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .btnBox {
-    margin: 0 auto;
+  margin: 0 auto;
 }
-

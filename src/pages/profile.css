@@ -1,17 +1,17 @@
-.backgroundBasket {
-  margin: 10px 10px 60px;
+.backgroundProfile {
+  margin-bottom: 100px;
 }
 
-.logBasket {
+.logProfile {
   margin: 0 auto;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
-  margin: 0;
+  margin: 10px 0 10px;
 }
 
-.basketBox {
-  padding-left: 20px;
+.ProfileBox {
+  padding: 2px;
   background: #e8c07a60;
 }

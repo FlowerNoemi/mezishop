@@ -1,41 +1,38 @@
-
 .homeSection {
-    margin: 0 auto;
-    background:  #e8c07a60;
-    max-width: 320px;
-    border: 1px solid  #dca64780;
-    box-shadow: 4px 8px #dca64780;
-    border-radius: 10px;
-    border-top: 5px solid #CC7F06;
-    padding-top: 10px;
+  margin: 0 auto;
+  background: #e8c07a60;
+  max-width: 320px;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+  padding-top: 10px;
 }
 
 .homeBox {
-    margin-bottom: 10px;
-    padding-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
 }
 
 .homeBtnBox {
-    width: auto;
-    text-align: center;
-    margin: 10px;
+  width: auto;
+  text-align: center;
+  margin: 10px;
 }
 
 .homeh1 {
-    font-weight: 700;
-    color: #3e2702
+  font-weight: 700;
+  color: #3e2702;
 }
 
 .landingBox {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .hom1 {
-    flex: 50%;
-    height: 300px;
-    margin: 150px auto;
-    text-align: center;
+  flex: 50%;
+  height: 300px;
+  margin: 150px auto;
+  text-align: center;
 }
-  
-

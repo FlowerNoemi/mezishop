@@ -1,29 +1,29 @@
-import { createContext , useState, useEffect} from 'react';
-import {getAllProduct} from '../api/getallproduct';
+import { createContext, useState, useEffect } from "react";
+import { getAllProduct } from "../api/getallproduct";
 
 export const ProductContext = createContext({
-    products: [],
+  products: [],
 });
 
-export const ProductsProvider = ({children}) =>{
-    const [products, setProducts] = useState(['']);
-const allProduct = async () => {
+export const ProductsProvider = ({ children }) => {
+  const [products, setProducts] = useState([""]);
+  const allProduct = async () => {
     try {
-        const dataRequest = await  getAllProduct();
-            console.log(dataRequest)
-            setProducts(dataRequest);
-    } catch(e) {
-            console.log('error message : ', e);
+      const dataRequest = await getAllProduct();
+      console.log(dataRequest);
+      setProducts(dataRequest);
+    } catch (e) {
+      console.log("error message : ", e);
     }
+  };
+
+  useEffect(() => {
+    allProduct();
+  }, []);
+
+  const value = { products, setProducts };
+
+  return (
+    <ProductContext.Provider value={value}> {children}</ProductContext.Provider>
+  );
 };
-    
-useEffect(() => {
-    allProduct();    
-} , []);
-
-const value = {products, setProducts};
-
-return (
-        <ProductContext.Provider value = {value}> {children}</ProductContext.Provider>
-) 
-}

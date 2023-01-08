@@ -1,42 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@100;500;700;800;900&display=swap");
 .AppBar {
-    font-family: 'Arima Madurai, curiseve, sans-serif';
+  font-family: "Arima Madurai, curiseve, sans-serif";
 }
 
 .fixbox {
-    margin: 10px;
+  margin: 10px;
 }
 
 .BrandLogo {
-    width: 1.5rem;
-    padding: 1px;
+  width: 1.5rem;
+  padding: 1px;
 }
 
 .toolBar {
-    background: var(--primary-color);
-   
+  background: var(--primary-color);
 }
 
 .toolBarW {
-        background: white;  
+  background: white;
 }
 
-.AppBar > .toolBarW > .toolbar >.brand {
-   color: #503201;
-   font-family: 'Arima Madurai';
-
+.AppBar > .toolBarW > .toolbar > .brand {
+  color: #503201;
+  font-family: "Arima Madurai";
 }
 
-.AppBar > .toolBarW > .toolbar >.brandBox > .brandButton {
-    text-transform: none;
-  
-    background: var(--primary-color);
-    margin: 10px;
-    width: 135px;
-    height: 30px;
-    padding: 0px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 85%;  
-}
+.AppBar > .toolBarW > .toolbar > .brandBox > .brandButton {
+  text-transform: none;
 
+  background: var(--primary-color);
+  margin: 10px;
+  width: 135px;
+  height: 30px;
+  padding: 0px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 85%;
+}
