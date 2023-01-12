@@ -105,7 +105,7 @@ const ChangeList = ({ allproducts }) => {
         getallProductsset(allproducts);
       } else {
         setOpen(true);
-        setErrMsg(response.data.message);
+        setErrMsg(response?.data.message);
         setSuccess("");
       }
     } catch (err) {

@@ -13,11 +13,11 @@ import { Myinput, MyinputPassword } from "../components/input/Myinput";
 import { MyButtonmedium } from "../components/button/Buttoncomponents";
 
 const REGISTER_URL = "/mezi_be/register/register.php";
-//eslint-disable-next-line
+
 const EMAIL_REGEX =
+  //eslint-disable-next-line
   /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const NAME_REGEX = /^[A-Za-zÁÉÍÓÖŐÚÜŰáéíóöőúüű\s].{1,}$/;
 
 const Register = () => {
   const errRef = useRef();
@@ -26,12 +26,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
-  const [vname, setVname] = useState("");
-  const [validVname, setValidVname] = useState(false);
-  const [vnameFocus, setVnameFocus] = useState(false);
-  const [kname, setKname] = useState("");
-  const [validKname, setValidKname] = useState(false);
-  const [knameFocus, setKnameFocus] = useState(false);
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
@@ -49,20 +43,6 @@ const Register = () => {
   }, [email]);
 
   useEffect(() => {
-    const result = NAME_REGEX.test(vname);
-    console.log(result);
-    console.log(vname);
-    setValidVname(result);
-  }, [vname]);
-
-  useEffect(() => {
-    const result = NAME_REGEX.test(kname);
-    console.log(result);
-    console.log(kname);
-    setValidKname(result);
-  }, [kname]);
-
-  useEffect(() => {
     const result = PWD_REGEX.test(pwd);
     console.log(result);
     console.log(pwd);
@@ -73,16 +53,14 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg("");
-  }, [email, vname, kname, pwd, matchPwd]);
+  }, [email, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const v1 = EMAIL_REGEX.test(email);
     const v2 = PWD_REGEX.test(pwd);
-    const v3 = NAME_REGEX.test(vname);
-    const v4 = NAME_REGEX.test(kname);
 
-    if (!v1 || !v2 || !v3 || !v4) {
+    if (!v1 || !v2) {
       setErrMsg("Érvénytelen mező");
       return;
     }
@@ -90,7 +68,7 @@ const Register = () => {
     try {
       const response = await axios.post(
         REGISTER_URL,
-        { email: email, vname: vname, kname: kname, password: pwd },
+        { email: email, password: pwd },
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -105,8 +83,6 @@ const Register = () => {
         setEmail("");
         setPwd("");
         setMatchPwd("");
-        setKname("");
-        setVname("");
       } else {
         setSuccess(false);
         setErrMsg(response.data.message);
@@ -181,66 +157,7 @@ const Register = () => {
                 Elküldés előtt add meg az email címed! <br />
                 Az e-mail cím formátuma nem megfelelő! <br />
               </p>
-              <label htmlFor="vname">
-                Vezetéknév
-                <span className={validVname ? "valid" : "hide"}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validVname || !vname ? "hide" : "invalid"}>
-                  <FontAwesomeIcon icon={faTimes} />
-                </span>
-              </label>
-              <Myinput
-                type="text"
-                id="vname"
-                onChange={(e) => setVname(e.target.value)}
-                required
-                aria-describedby="vnamenote"
-                onFocus={() => setVnameFocus(true)}
-                onBlur={() => setVnameFocus(false)}
-              />
-              <p
-                id="vnamenote"
-                className={
-                  vnameFocus && vname && !validVname
-                    ? "instructions"
-                    : "offscreen"
-                }
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />
-                Elküldés előtt add meg az vezetékneved! <br />
-                Minimum 2 karakter szükséges! <br />
-              </p>
-              <label htmlFor="kname">
-                Keresztnév
-                <span className={validKname ? "valid" : "hide"}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validKname || !kname ? "hide" : "invalid"}>
-                  <FontAwesomeIcon icon={faTimes} />
-                </span>
-              </label>
-              <Myinput
-                type="text"
-                id="kname"
-                onChange={(e) => setKname(e.target.value)}
-                required
-                aria-describedby="knamenote"
-                onFocus={() => setKnameFocus(true)}
-                onBlur={() => setKnameFocus(false)}
-              />
-              <p
-                id="knamenote"
-                className={
-                  knameFocus && kname && !validKname
-                    ? "instructions"
-                    : "offscreen"
-                }
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />
-                Elküldés előtt add meg az keresztneved! <br />
-                Minimum 2 karakter szükséges! <br />
-              </p>
+
               <label htmlFor="password">
                 Jelszó:
                 <span className={validPwd ? "valid" : "hide"}>
@@ -305,13 +222,7 @@ const Register = () => {
               </p>
               <MyButtonmedium
                 disabled={
-                  !validEmail ||
-                  !validPwd ||
-                  !validMatch ||
-                  !validVname ||
-                  !validKname
-                    ? true
-                    : false
+                  !validEmail || !validPwd || !validMatch ? true : false
                 }
                 className="regBtn"
                 value="Regisztráció"

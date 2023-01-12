@@ -1,60 +1,51 @@
-.checkout-item-container {
-  width: 100%;
+.flex-container-Check {
   display: flex;
-  border-bottom: 1px solid darkgrey;
-  padding: 10px 0;
-  font-size: 20px;
-  align-items: center;
-  color: black;
-  background-color: #e8c07a60;
-}
-
-.image-container {
-  width: 25%;
-  padding: 5px;
-  height: 150px;
-}
-.name,
-.quantity,
-.price {
-  width: 23%;
-}
-
-.quantity {
-  display: flex;
-}
-
-.arrow {
-  cursor: pointer;
-}
-
-.value {
-  margin: 0 10px;
-}
-
-.remove-button {
-  padding-left: 12px;
-  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 400px;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+  margin: 20px auto;
+  height: 280px;
 }
 
 .checkoutImg {
-  text-align: center;
-  height: 150px;
-  float: left;
+  width: 120px;
 }
 
+.desc-container {
+  padding-top: 50px;
+  flex: 60%;
+  background-color: #e094116d;
+}
+.image-container {
+  padding-top: 25px;
+  flex: 40%;
+  margin: auto;
+}
+
+.value {
+  display: inline-flex;
+  margin: 5px 5px;
+  padding: 2px;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
 @media (max-width: 800px) {
-  .checkout-item-container {
-    display: table-column;
-    text-align: left;
-  }
+  .desc-container,
   .image-container {
-    float: left;
-    margin-right: 20px;
-    margin-top: 10px;
+    flex: 60%;
+    padding: 5px;
+  }
+  .flex-container-Check {
+    max-width: 300px;
+    height: auto;
   }
   .checkoutImg {
-    width: 50px;
+    width: 20%;
     height: auto;
   }
 }

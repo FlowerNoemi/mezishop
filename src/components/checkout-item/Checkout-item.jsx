@@ -4,6 +4,9 @@ import { CartContext } from "../../context/CartContext";
 import axios from "../../api/axios";
 import { UserContext } from "../../context/UserContext";
 import useAuth from "../../hooks/useAuth";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const delete_URL = "/mezi_be/order/delete.php";
 const remove_URL = "/mezi_be/order/remove.php";
@@ -121,25 +124,31 @@ const CheckoutItem = ({ cartItem }) => {
   };
 
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
-        <img src={img} alt={`${termeknev}`} className="checkoutImg" />
-      </div>
-      <span className="name">{termeknev}</span>
-      <span className="quantity">
-        <div className="arrow" onClick={removeItemToHandler}>
-          &#10094;
+    <>
+      <div className="flex-container-Check">
+        <div className="image-container">
+          <img src={img} alt={`${termeknev}`} className="checkoutImg" />
         </div>
-        <span className="value"> {db}</span>
-        <div className="arrow" onClick={addItemToHandler}>
-          &#10095;
+        <div className="desc-container">
+          <p>{termeknev}</p>
+          <span className="quantity">
+            <RemoveCircleOutlineIcon
+              className="arrow"
+              onClick={removeItemToHandler}
+            ></RemoveCircleOutlineIcon>
+            <span className="value"> {db}</span>
+            <AddCircleOutlineIcon
+              onClick={addItemToHandler}
+            ></AddCircleOutlineIcon>
+          </span>
+          <p>{ar} Ft</p>
+          <HighlightOffIcon
+            className="remove-button"
+            onClick={clearItemHandler}
+          ></HighlightOffIcon>
         </div>
-      </span>
-      <span className="price">{ar} Ft</span>
-      <div className="remove-button" onClick={clearItemHandler}>
-        &#10005;
       </div>
-    </div>
+    </>
   );
 };
 

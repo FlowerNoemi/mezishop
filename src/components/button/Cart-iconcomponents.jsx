@@ -12,7 +12,8 @@ const rendeles_URL = "/mezi_be/order/rendeles.php";
 const CartIcon = () => {
   const { auth } = useAuth();
   const [email] = useState(auth.email);
-  const { cartCount, cartItems, myActualData } = useContext(CartContext);
+  const { cartCount, cartItems, myActualData, myOrderIdReq } =
+    useContext(CartContext);
   const { userData, userDataReq } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -21,9 +22,13 @@ const CartIcon = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email]);
 
+  useEffect(() => {
+    myActualData(email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [email]);
   useEffect(
     () => {
-      myActualData(email);
+      myOrderIdReq(email);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [email]

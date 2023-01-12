@@ -1,0 +1,12 @@
+.checkoutImgProd {
+  max-width: 50%;
+  height: 100px;
+  float: none;
+}
+
+@media (max-width: 800px) {
+  .checkoutImgProd {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -6,7 +6,7 @@
 
 .editorBox {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   margin: 0 auto;
   max-width: 800px;
   border: 1px solid #dca64780;
@@ -16,14 +16,21 @@
   text-align: center;
 }
 
-@media (max-width: 800px) {
-  .editorBox,
-  .imgBoxEditor {
+@media (max-width: 600px) {
+  .imgBoxEditor,
+  .editorSection {
     flex: 100%;
+  }
+
+  .imgLogoEditor {
+    width: 30%;
   }
   .backgroundEditor {
     min-height: 100vh;
     padding: 8px;
+  }
+  .editorBox {
+    flex-direction: column;
   }
 }
 
@@ -34,17 +41,16 @@
 .imgLogoEditor {
   float: none;
   width: 70%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   display: block;
   border-radius: 10px;
 }
 
 .editorSection {
-  flex: 50%;
+  flex: 10%;
   justify-content: flex-start;
   background: #e8c07a60;
-  padding-top: 20px;
+  padding: 70px;
 }
 
 .editorh1 {

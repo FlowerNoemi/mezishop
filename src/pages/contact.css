@@ -1,6 +1,5 @@
 .backgroundContact {
-  background-color: #fabf6127;
-  padding: 8px;
+  padding: 10px;
 }
 
 .ContactDiv {
@@ -14,23 +13,23 @@
   border-top: 5px solid #cc7f06;
 }
 
-@media (max-width: 800px) {
-  .logBox,
+@media (max-width: 600px) {
+  .contactBox,
   .imgBoxContact {
-    flex: 100%;
+    flex: 50%;
   }
   .backgroundContact {
-    padding: 8px;
+    padding: 2px;
   }
 }
 
 .imgBoxContact {
-  flex: 50%;
+  flex: 40%;
 }
 
 .imgLogoContact {
   float: none;
-  width: 70%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -38,10 +37,10 @@
 }
 
 .contactBox {
-  flex: 50%;
+  flex: 40%;
   justify-content: flex-start;
   text-align: center;
-  padding: 20px;
+  padding: 0px;
   background: #e8c07a60;
 }
 
@@ -49,7 +48,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 2px auto;
-  width: 1000px;
+  max-width: 1000px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
@@ -59,13 +58,13 @@
 }
 
 .ContactDivCont1 {
-  flex: 60%;
+  flex: 40%;
 }
 
 .ContactDivCont2 {
   flex: 40%;
   background: #e8c07a60;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 @media (max-width: 800px) {
@@ -80,4 +79,5 @@
 
 .Contacth1 {
   text-align: center;
+  font-size: 26px;
 }

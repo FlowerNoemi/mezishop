@@ -24,7 +24,8 @@ export const Myinput = ({ value, onChange, label, onFocus, onBlur, type }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 2,
+        m: 1,
+        width: "20ch",
       }}
       label={label}
       value={value}
@@ -67,7 +68,8 @@ export const MyinputPassword = ({
             borderColor: "#D69967",
           },
         },
-        m: 2,
+        m: 1,
+        width: "20ch",
       }}
       value={value}
       label={label}
@@ -76,7 +78,7 @@ export const MyinputPassword = ({
       type="password"
       onFocus={onFocus}
       onBlur={onBlur}
-      InputLabelProps={{ style: { fontFamily: "Arima Madurai, sans-serif" } }}
+      InputLabelProps={{ sx: { fontFamily: "Arima Madurai, sans-serif" } }}
       autoComplete="off"
     />
   );
@@ -104,7 +106,8 @@ export const MyTextArea = ({ value, onChange, label, onFocus, onBlur }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 2,
+        m: 1,
+        width: "20ch",
       }}
       label={label}
       value={value}
@@ -115,7 +118,7 @@ export const MyTextArea = ({ value, onChange, label, onFocus, onBlur }) => {
       onFocus={onFocus}
       onBlur={onBlur}
       multiline
-      InputLabelProps={{ style: { fontFamily: "Arima Madurai, sans-serif" } }}
+      InputLabelProps={{ sx: { fontFamily: "Arima Madurai, sans-serif" } }}
       autoComplete="off"
     />
   );
@@ -143,15 +146,15 @@ export const MyinputField = ({ value, onChange, label, type }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 2,
-        width: "21ch",
+        m: 1,
+        width: "20ch",
       }}
       label={label}
       value={value}
       type={type}
       onChange={onChange}
       variant="standard"
-      InputLabelProps={{ style: { fontFamily: "Arima Madurai, sans-serif" } }}
+      InputLabelProps={{ sx: { fontFamily: "Arima Madurai, sans-serif" } }}
       autoComplete="off"
     />
   );
@@ -179,8 +182,8 @@ export const MyinputFieldArea = ({ value, onChange, label, type }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 2,
-        width: "80%",
+        m: 1,
+        width: "20ch",
       }}
       label={label}
       value={value}
@@ -189,7 +192,7 @@ export const MyinputFieldArea = ({ value, onChange, label, type }) => {
       onChange={onChange}
       variant="standard"
       multiline
-      InputLabelProps={{ style: { fontFamily: "Arima Madurai, sans-serif" } }}
+      InputLabelProps={{ sx: { fontFamily: "Arima Madurai, sans-serif" } }}
       autoComplete="off"
     />
   );
@@ -218,10 +221,11 @@ export const MyinputPasswordLogin = ({ value, onChange, label }) => {
             borderColor: "#D69967",
           },
         },
-        m: 2,
+        m: 1,
+        width: "20ch",
         fontFamily: "Arima Madurai, sans-serif",
       }}
-      InputLabelProps={{ style: { fontFamily: "Arima Madurai, sans-serif" } }}
+      InputLabelProps={{ sx: { fontFamily: "Arima Madurai, sans-serif" } }}
       autoComplete="off"
       value={value}
       label={label}

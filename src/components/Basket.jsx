@@ -82,6 +82,7 @@ const Basket = () => {
       szallitas: szallitas,
       fizetes: fizetes,
     });
+    console.log(userData2);
     try {
       const response = await axios.post(
         MyUpdate_URL,
@@ -90,6 +91,7 @@ const Basket = () => {
           email: email,
           id: userData.id,
           shipid: userData.shipid,
+          checkid: userData.checkid,
           kname: kname,
           iranyito: iranyito,
           cim: cim,
@@ -171,6 +173,12 @@ const Basket = () => {
     if (userData2.adozo) {
       setAdozo(userData2.adozo);
     }
+    if (userData2.adoszam) {
+      setAdoszam(userData2.adoszam);
+    }
+    if (userData2.EUadoszam) {
+      setEUAdoszam(userData2.EUadoszam);
+    }
   }, [
     userData.vname,
     userData.vname2,
@@ -188,6 +196,8 @@ const Basket = () => {
     userData2.szallitas,
     userData2.fizetes,
     userData2.adozo,
+    userData2.adoszam,
+    userData2.EUadoszam,
   ]);
 
   const handleChange = (event) => {
@@ -204,7 +214,7 @@ const Basket = () => {
 
   return (
     <div className="backgroundBasket">
-      <Box sx={{ width: "100%", mx: "auto", p: 2 }}>
+      <Box sx={{ width: "100%", p: 1 }}>
         <Stepper
           activeStep={2}
           alternativeLabel
@@ -241,8 +251,8 @@ const Basket = () => {
             </div>
             <Grid
               container
-              rowSpacing={3}
-              columnSpacing={3}
+              rowSpacing={1}
+              columnSpacing={2}
               columns={{ xs: 1, sm: 6, md: 12 }}
             >
               <Grid item xs={6}>
@@ -577,20 +587,19 @@ const Basket = () => {
                       <MyinputField
                         label="EU adószám"
                         value={EUadoszam}
-                        onChange={(e) => setAdoszam(e.target.value)}
+                        onChange={(e) => setEUAdoszam(e.target.value)}
                       />
                     </div>
                   )}
                 </div>
               </Grid>
-
-              <MyLittleButton onClick={Back} value="Vissza">
-                {" "}
-              </MyLittleButton>
-              <MyLittleButton onClick={Finish} value="Tovább">
-                {" "}
-              </MyLittleButton>
             </Grid>
+            <MyLittleButton onClick={Back} value="Vissza">
+              {" "}
+            </MyLittleButton>
+            <MyLittleButton onClick={Finish} value="Tovább">
+              {" "}
+            </MyLittleButton>
           </Box>
         </Container>
       </>

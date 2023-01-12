@@ -1,5 +1,5 @@
 .backgroundBasket {
-  margin: 10px 10px 60px;
+  margin: 5px 5px 60px;
 }
 
 .logBasket {
@@ -8,10 +8,9 @@
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
-  margin: 0;
 }
 
 .basketBox {
-  padding-left: 20px;
+  padding-left: 1px;
   background: #e8c07a60;
 }

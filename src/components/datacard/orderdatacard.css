@@ -1,0 +1,16 @@
+.flex-container-Orderdatacard {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-item-left-Orderdatacard {
+  flex: 50%;
+  margin-bottom: 20px;
+}
+
+.OrderDataP {
+  padding-left: 50px;
+}
+.OrderDataP2 {
+  padding-left: 80px;
+}

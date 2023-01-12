@@ -46,6 +46,10 @@ const Home = () => {
     navigate("/message");
   };
 
+  const order = () => {
+    navigate("/order");
+  };
+
   const level = auth?.roles?.find((role) => role.includes("2001"));
 
   return (
@@ -71,7 +75,13 @@ const Home = () => {
                 value="Üzenetek"
               ></MyButtonmedium>
             </div>
-            <div className="adminBtn">
+            <div className="homeBox">
+              <MyButtonmedium
+                onClick={order}
+                value="Rendelések"
+              ></MyButtonmedium>
+            </div>
+            <div className="homeBox">
               <MyButtonmedium
                 onClick={logout}
                 value="Kijelentkezés"

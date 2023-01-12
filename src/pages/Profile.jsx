@@ -76,6 +76,7 @@ const Profile = () => {
           email: email,
           id: userData.id,
           shipid: userData.shipid,
+          checkid: userData.checkid,
           kname: kname,
           iranyito: iranyito,
           cim: cim,
@@ -209,7 +210,7 @@ const Profile = () => {
                       letterSpacing: ".1rem",
                       textDecoration: "none",
                       color: "#7F4E18",
-                      m: 2,
+                      m: 1,
                     }}
                   >
                     <Grid item xs={6}>
@@ -316,14 +317,13 @@ const Profile = () => {
                         </div>
                       </div>
                     </Grid>
-
-                    <MyLittleButton onClick={Back} value="Mégse">
-                      {" "}
-                    </MyLittleButton>
-                    <MyLittleButton onClick={Finish} value="Mentés">
-                      {" "}
-                    </MyLittleButton>
                   </Grid>
+                  <MyLittleButton onClick={Back} value="Mégse">
+                    {" "}
+                  </MyLittleButton>
+                  <MyLittleButton onClick={Finish} value="Mentés">
+                    {" "}
+                  </MyLittleButton>
                 </div>
               )}
             </>

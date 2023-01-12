@@ -4,13 +4,11 @@ import "./buttoncomponents.css";
 
 export const MyLittleButton = ({ value, onClick }) => {
   return (
-    <Box sx={{ "& button": { m: 1 } }}>
-      <div>
-        <button value={value} onClick={onClick} className="littleButton">
-          {value}
-        </button>
-      </div>
-    </Box>
+    <div className="btnBox">
+      <button value={value} onClick={onClick} className="littleButton">
+        {value}
+      </button>
+    </div>
   );
 };
 

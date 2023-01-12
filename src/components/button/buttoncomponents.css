@@ -30,7 +30,7 @@ button {
 
 .mediumButton {
   border-radius: 10px;
-  width: 300px;
+  width: 160px;
   font-size: 22px;
   margin: 5px;
   font-size: 20px;
@@ -86,6 +86,11 @@ button {
   transition: 0.5s;
   background-size: 200% auto;
 }
+.btnBox {
+  display: inline-block;
+  padding: 5px;
+  height: 90px;
+}
 
 .littleButton:hover {
   background-position: right center;
@@ -96,7 +101,6 @@ button {
 }
 
 .bigButton {
-  width: 100%;
   border-radius: 10px;
   font-size: 30px;
   cursor: pointer;

@@ -60,8 +60,6 @@ const Admin = () => {
             <TableRow>
               <StyledTableCell>id</StyledTableCell>
               <StyledTableCell align="center">Email</StyledTableCell>
-              <StyledTableCell align="center">Vezetéknév</StyledTableCell>
-              <StyledTableCell align="center">Keresztnév</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -71,8 +69,6 @@ const Admin = () => {
                   {user.id}
                 </StyledTableCell>
                 <StyledTableCell align="center">{user.email}</StyledTableCell>
-                <StyledTableCell align="center">{user.vname}</StyledTableCell>
-                <StyledTableCell align="center">{user.kname}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

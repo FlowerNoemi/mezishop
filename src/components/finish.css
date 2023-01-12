@@ -1,0 +1,79 @@
+.finishBox {
+  margin: 0 auto;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+  max-width: 800px;
+  margin-bottom: 50px;
+  padding: 0;
+}
+
+.totalFinish {
+  margin-top: 30px;
+  font-size: 26px;
+  text-align: end;
+  padding: 10px;
+}
+
+.backgroundFinish {
+  padding: 10px;
+}
+
+.FinishDiv {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+}
+
+@media (max-width: 800px) {
+  .imgBoxFinish {
+    flex: 100%;
+  }
+  .backgroundContact {
+    padding: 8px;
+  }
+}
+
+.imgBoxFinish {
+  flex: 50%;
+}
+
+.imgLogoFinish {
+  float: none;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.FinishBox {
+  flex: 50%;
+  text-align: center;
+  padding: 5px;
+  background: #e8c07a60;
+}
+
+.btnBoxFinish {
+  margin: 0 auto;
+}
+
+.errmsgFinish {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.6rem;
+  width: 348px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+.offscreenNewFinish {
+  position: absolute;
+  left: -9999px;
+}

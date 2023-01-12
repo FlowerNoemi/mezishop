@@ -74,10 +74,8 @@ const NewProduct = () => {
     } catch (err) {
       if (!err?.response) {
         setErrMsg("A szerver nem válaszol!");
-      } else if (err.response?.status === 409) {
-        setErrMsg("Regisztrált email cím");
       } else {
-        setErrMsg("Sikertelen regisztráció");
+        setErrMsg("Sikertelen módosítás");
       }
       errRef.current.focus();
     }

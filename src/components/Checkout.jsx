@@ -43,8 +43,8 @@ const Checkout = () => {
             ></MyButtonmedium>
           </div>
         ) : (
-          <div>
-            <Box sx={{ width: "100%", mx: "auto", p: 5 }}>
+          <div className="checkoutBox">
+            <Box sx={{ width: "100%", p: 1 }}>
               <Stepper
                 activeStep={1}
                 alternativeLabel
@@ -68,39 +68,21 @@ const Checkout = () => {
               </Stepper>
             </Box>
             <div className="checkout-container">
-              <div className="checkout-header">
-                <div className="header-block">
-                  <span>Termék</span>
-                </div>
-                <div className="header-block">
-                  <span>Megnevezés</span>
-                </div>
-                <div className="header-block">
-                  <span>Mennyiség</span>
-                </div>
-                <div className="header-block">
-                  <span>Ár</span>
-                </div>
-                <div className="header-block">
-                  <span>Törlés</span>
-                </div>
-              </div>
               {cartItems.map((cartItem) => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
               ))}
-              <span className="total">Összesen: {cartTotal} Ft </span>
-              <div>
-                <MyLittleButton
-                  onClick={Shop}
-                  value="Vásárlás folytatása"
-                ></MyLittleButton>
-              </div>
-              <div>
-                <MyLittleButton
-                  onClick={Basket}
-                  value="Tovább"
-                ></MyLittleButton>
-              </div>
+              <p className="total">Összesen: {cartTotal} Ft </p>
+
+              <MyLittleButton
+                onClick={Shop}
+                value="Shop"
+                className="shopBtn"
+              ></MyLittleButton>
+              <MyLittleButton
+                className="shopBtn"
+                onClick={Basket}
+                value="Tovább"
+              ></MyLittleButton>
             </div>
           </div>
         )}

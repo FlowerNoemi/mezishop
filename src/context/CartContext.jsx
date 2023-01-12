@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { myActualOrderData } from "../api/myactualorder";
+import { myOrderId } from "../api/orderid";
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -39,6 +40,7 @@ const clearCartItem = (cartItems, cartItemToClear) =>
 export const CartContext = createContext({
   setIsOpen: () => {},
   cartItems: [],
+  orderId: [],
   addItemToCart: () => {},
   removeItemFroCart: () => {},
   clearItemFromCart: () => {},
@@ -52,6 +54,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
+  const [orderId, setOrderId] = useState(0);
 
   useEffect(() => {
     const newCartCount = cartItems.reduce(
@@ -91,6 +94,15 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const myOrderIdReq = async (email) => {
+    try {
+      const dataRequest = await myOrderId(email);
+      setOrderId(dataRequest);
+    } catch (e) {
+      console.log("error message : ", e);
+    }
+  };
+
   const value = {
     cartItems,
     addItemToCart,
@@ -100,6 +112,8 @@ export const CartProvider = ({ children }) => {
     cartTotal,
     clearFromCart,
     myActualData,
+    myOrderIdReq,
+    orderId,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

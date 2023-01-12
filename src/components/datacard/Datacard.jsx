@@ -7,8 +7,8 @@ const Datacard = () => {
   const { userData, userData2 } = useContext(UserContext);
 
   return (
-    <article style={{ padding: "40px" }} className="flex-container">
-      <div className="flex-item-left">
+    <article style={{ padding: "30px" }} className="flex-container-datacard">
+      <div className="flex-item-left-datacard">
         {userData2.szallitas === "Személyes átvétel" ? (
           <div>
             <h1>Szállítási adatok:</h1>
@@ -16,7 +16,7 @@ const Datacard = () => {
           </div>
         ) : (
           <div>
-            <div className="flex-item-left">
+            <div className="flex-item-left-datacard">
               <h1>Szállítási adatok:</h1>
               <p>
                 {userData.vname} {userData.kname}
@@ -31,7 +31,7 @@ const Datacard = () => {
         )}
       </div>
 
-      <div className="flex-item-right">
+      <div className="flex-item-right-datacard">
         <h1>Számlázási adatok:</h1>
         <p>
           {userData.vname2} {userData.kname2}
