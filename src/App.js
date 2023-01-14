@@ -17,6 +17,7 @@ import Newproduct from "./components/Newproduct";
 import Checkout from "./components/Checkout";
 import Finish from "./components/Finish";
 import Change from "./components/Change";
+import Allorder from "./components/Allorder";
 
 const ROLES = {
   User: "2000",
@@ -47,6 +48,7 @@ function App() {
           <Route path="/new" element={<Newproduct />} />
           <Route path="/change" element={<Change />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/allorder" element={<Allorder />} />
         </Route>
       </Routes>
       <Footer />

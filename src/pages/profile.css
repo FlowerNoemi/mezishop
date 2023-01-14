@@ -4,13 +4,19 @@
 
 .logProfile {
   margin: 0 auto;
-  border: 1px solid #dca64780;
-  box-shadow: 4px 8px #dca64780;
-  border-radius: 10px;
-  border-top: 5px solid #cc7f06;
 }
 
 .ProfileBox {
   padding: 2px;
   background: #e8c07a60;
+}
+
+@media (max-width: 800px) {
+  .backgroundProfile {
+    max-width: 300px;
+  }
+  .ProfileBox {
+    padding: 0px;
+    background: #e8c07a60;
+  }
 }

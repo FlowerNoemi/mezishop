@@ -5,18 +5,19 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "@mui/material/Link";
 import axios from "../api/axios";
 import "./register.css";
 import { useNavigate } from "react-router-dom";
 import { Myinput, MyinputPassword } from "../components/input/Myinput";
 import { MyButtonmedium } from "../components/button/Buttoncomponents";
+import loginlogo from "../assets/logo1.webp";
 
 const REGISTER_URL = "/mezi_be/register/register.php";
 
 const EMAIL_REGEX =
   //eslint-disable-next-line
   /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
@@ -37,15 +38,12 @@ const Register = () => {
 
   useEffect(() => {
     const result = EMAIL_REGEX.test(email);
-    console.log(result);
-    console.log(email);
+
     setValidEmail(result);
   }, [email]);
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
-    console.log(result);
-    console.log(pwd);
     setValidPwd(result);
     const match = pwd === matchPwd;
     setValidMatch(match);
@@ -74,9 +72,6 @@ const Register = () => {
           withCredentials: true,
         }
       );
-      console.log(response?.data.code);
-      console.log(response?.accessToken);
-      console.log(JSON.stringify(response));
 
       if (response?.data.code === "1") {
         setSuccess(true);
@@ -100,156 +95,161 @@ const Register = () => {
   };
 
   return (
-    <>
+    <div className="backgroundreg">
       {success ? (
-        <section className="regSuccses">
-          <h1>Sikeres regisztráció!</h1>
-          <Link
-            onClick={() => navigate("/login")}
-            sx={{
-              color: "white",
-              textDecorationColor: "white",
-              cursor: "pointer",
-            }}
-          >
-            Bejelentkezés
-          </Link>
-        </section>
-      ) : (
-        <div className="regBox">
-          <section className="regSection">
-            <p
-              ref={errRef}
-              className={errMsg ? "errmsg" : "offscreen"}
-              aria-live="assertive"
-            >
-              {errMsg}
-            </p>
-            <h1>Regisztáció</h1>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="email">
-                E-mail cím:
-                <span className={validEmail ? "valid" : "hide"}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validEmail || !email ? "hide" : "invalid"}>
-                  <FontAwesomeIcon icon={faTimes} />
-                </span>
-              </label>
-              <Myinput
-                type="email"
-                id="email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                aria-invalid={validEmail ? "false" : "true"}
-                aria-describedby="emailnote"
-                onFocus={() => setEmailFocus(true)}
-                onBlur={() => setEmailFocus(false)}
-              />
-              <p
-                className={
-                  emailFocus && email && !validEmail
-                    ? "instructions"
-                    : "offscreen"
-                }
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />
-                Elküldés előtt add meg az email címed! <br />
-                Az e-mail cím formátuma nem megfelelő! <br />
-              </p>
-
-              <label htmlFor="password">
-                Jelszó:
-                <span className={validPwd ? "valid" : "hide"}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validPwd || !pwd ? "hide" : "invalid"}>
-                  <FontAwesomeIcon icon={faTimes} />
-                </span>
-              </label>
-              <MyinputPassword
-                onChange={(e) => setPwd(e.target.value)}
-                required
-                aria-invalid={validPwd ? "false" : "true"}
-                aria-describedby="pwdnote"
-                onFocus={() => setPwdFocus(true)}
-                onBlur={() => setPwdFocus(false)}
-              />
-              <p
-                id="pwdnote"
-                className={
-                  pwdFocus && pwd && !validPwd ? "instructions" : "offscreen"
-                }
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />
-                8-24 karakter
-                <br />
-                Tartalmaznia kell kis és nagybetűt, számot, speciális karaktert.{" "}
-                <br />
-                Engedélyezett speciális karakterek:{" "}
-                <span aria-label="exclamation mark">!</span>{" "}
-                <span aria-label="at symbol">@</span>{" "}
-                <span aria-label="hashtag">#</span>{" "}
-                <span aria-label="dollar sign">$</span>{" "}
-                <span aria-label="percent">%</span>
-              </p>
-              <label htmlFor="confirm_pwd">
-                Jelszó megerősítés:
-                <span className={validMatch && matchPwd ? "valid" : "hide"}>
-                  <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validMatch || !matchPwd ? "hide" : "invalid"}>
-                  <FontAwesomeIcon icon={faTimes} />
-                </span>
-              </label>
-              <MyinputPassword
-                id="confirm_pwd"
-                onChange={(e) => setMatchPwd(e.target.value)}
-                required
-                aria-invalid={validMatch ? "false" : "true"}
-                aria-describedby="confirmnote"
-                onFocus={() => setMatchFocus(true)}
-                onBlur={() => setMatchFocus(false)}
-              />
-              <p
-                id="confirmnote"
-                className={
-                  matchFocus && !validMatch ? "instructions" : "offscreen"
-                }
-              >
-                <FontAwesomeIcon icon={faInfoCircle} />A megadott jelszavak nem
-                egyeznek!
-              </p>
+        <div className="regSection">
+          <div className="imgBoxReg">
+            <img
+              src={loginlogo}
+              loading="lazy"
+              alt="Mézishop logó"
+              title="Mézishop logó"
+              className="imgLogoReg"
+            />
+          </div>
+          <section className="regSuccses ">
+            <h1>Sikeres regisztráció </h1>
+            <div className="btnBoxReg">
               <MyButtonmedium
-                disabled={
-                  !validEmail || !validPwd || !validMatch ? true : false
-                }
-                className="regBtn"
-                value="Regisztráció"
-              >
-                Regisztráció
-              </MyButtonmedium>
-            </form>
-            <p className="regInfo">
-              Van már regisztrációd?
-              <br />
-              <span className="line">
-                <Link
-                  onClick={() => navigate("/login")}
-                  sx={{
-                    color: "white",
-                    textDecorationColor: "white",
-                    cursor: "pointer",
-                  }}
-                >
-                  Bejelentkezés
-                </Link>
-              </span>
-            </p>
+                onClick={() => navigate("/login")}
+                value="Bejelentkezés!"
+                className="loginBtn"
+              ></MyButtonmedium>
+            </div>
           </section>
         </div>
+      ) : (
+        <section className="regBox">
+          <section className="regSection">
+            <div className="imgBox">
+              <h1 className="logh1">Regisztráció</h1>
+              <img
+                src={loginlogo}
+                loading="lazy"
+                alt="Mézishop logó"
+                title="Mézishop logó"
+                className="imgLogo"
+              />
+            </div>
+            <div className="formRegsec">
+              <form onSubmit={handleSubmit} className="formReg">
+                <p
+                  ref={errRef}
+                  className={errMsg ? "errmsg" : "offscreen"}
+                  aria-live="assertive"
+                >
+                  {errMsg}
+                </p>
+                <label htmlFor="email">
+                  E-mail cím:
+                  <span className={validEmail ? "valid" : "hide"}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
+                  <span className={validEmail || !email ? "hide" : "invalid"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                </label>
+                <Myinput
+                  type="email"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  aria-invalid={validEmail ? "false" : "true"}
+                  aria-describedby="emailnote"
+                  onFocus={() => setEmailFocus(true)}
+                  onBlur={() => setEmailFocus(false)}
+                />
+                <p
+                  className={
+                    emailFocus && email && !validEmail
+                      ? "instructions"
+                      : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  Elküldés előtt add meg az email címed! <br />
+                  Az e-mail cím formátuma nem megfelelő! <br />
+                </p>
+
+                <label htmlFor="password">
+                  Jelszó:
+                  <span className={validPwd ? "valid" : "hide"}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
+                  <span className={validPwd || !pwd ? "hide" : "invalid"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                </label>
+                <MyinputPassword
+                  onChange={(e) => setPwd(e.target.value)}
+                  required
+                  aria-invalid={validPwd ? "false" : "true"}
+                  aria-describedby="pwdnote"
+                  onFocus={() => setPwdFocus(true)}
+                  onBlur={() => setPwdFocus(false)}
+                />
+                <p
+                  id="pwdnote"
+                  className={
+                    pwdFocus && pwd && !validPwd ? "instructions" : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  8-24 karakter
+                  <br />
+                  Tartalmaznia kell kis és nagybetűt, számot, speciális
+                  karaktert. <br />
+                  Engedélyezett speciális karakterek:{" "}
+                  <span aria-label="exclamation mark">!</span>{" "}
+                  <span aria-label="at symbol">@</span>{" "}
+                  <span aria-label="hashtag">#</span>{" "}
+                  <span aria-label="dollar sign">$</span>{" "}
+                  <span aria-label="percent">%</span>
+                </p>
+                <label htmlFor="confirm_pwd">
+                  Jelszó megerősítés:
+                  <span className={validMatch && matchPwd ? "valid" : "hide"}>
+                    <FontAwesomeIcon icon={faCheck} />
+                  </span>
+                  <span
+                    className={validMatch || !matchPwd ? "hide" : "invalid"}
+                  >
+                    <FontAwesomeIcon icon={faTimes} />
+                  </span>
+                </label>
+                <MyinputPassword
+                  id="confirm_pwd"
+                  onChange={(e) => setMatchPwd(e.target.value)}
+                  required
+                  aria-invalid={validMatch ? "false" : "true"}
+                  aria-describedby="confirmnote"
+                  onFocus={() => setMatchFocus(true)}
+                  onBlur={() => setMatchFocus(false)}
+                />
+                <p
+                  id="confirmnote"
+                  className={
+                    matchFocus && !validMatch ? "instructions" : "offscreen"
+                  }
+                >
+                  <FontAwesomeIcon icon={faInfoCircle} />A megadott jelszavak
+                  nem egyeznek!
+                </p>
+                <MyButtonmedium
+                  disabled={
+                    !validEmail || !validPwd || !validMatch ? true : false
+                  }
+                  className="regBtn"
+                  value="Regisztráció"
+                >
+                  Regisztráció
+                </MyButtonmedium>
+              </form>
+            </div>
+          </section>
+        </section>
       )}
-    </>
+    </div>
   );
 };
 

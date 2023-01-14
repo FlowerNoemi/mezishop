@@ -1,9 +1,9 @@
 .backgroundBasket {
-  margin: 5px 5px 60px;
+  margin: 50px auto;
 }
 
 .logBasket {
-  margin: 0 auto;
+  margin: 10px auto;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
@@ -11,6 +11,19 @@
 }
 
 .basketBox {
-  padding-left: 1px;
+  padding: 20px 10px;
   background: #e8c07a60;
+}
+
+@media (max-width: 800px) {
+  .basketBox {
+    padding: 5px 0;
+  }
+  .logBasket {
+    margin: 0;
+  }
+  .backgroundBasket {
+    margin: 0 auto;
+    max-width: 298px;
+  }
 }

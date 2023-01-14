@@ -50,6 +50,10 @@ const Home = () => {
     navigate("/order");
   };
 
+  const Allorder = () => {
+    navigate("/allorder");
+  };
+
   const level = auth?.roles?.find((role) => role.includes("2001"));
 
   return (
@@ -78,6 +82,12 @@ const Home = () => {
             <div className="homeBox">
               <MyButtonmedium
                 onClick={order}
+                value="Kiszállítások"
+              ></MyButtonmedium>
+            </div>
+            <div className="homeBox">
+              <MyButtonmedium
+                onClick={Allorder}
                 value="Rendelések"
               ></MyButtonmedium>
             </div>

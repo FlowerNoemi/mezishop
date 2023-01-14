@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `BackEnd` használata
+
+A backend futtatásához Apache webszerver futtatása szükséges (pl. XAMPP-webszerver szoftvercsomag). A szerver fájlokat a "mezi_be" mappa tartalmazza.
+
+### `Adatbázis` használata
+
+Az adatbázishoz történő hozzáféréshez a mezidb.sql fájl importálása szükséges MySQL szerverre.

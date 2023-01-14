@@ -1,101 +1,129 @@
+.backgroundreg {
+  max-width: 800px;
+  margin: 10px auto;
+}
 
 .regBox {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  min-height: 100vh;
-  padding: 1rem 0.5rem;
-  margin-top: 1rem;
+  padding: 1.5rem 1.5rem;
+  margin: 0 auto;
 }
 
-
 .regSection {
-    width: 100%;
-    max-width: 420px;
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    opacity: 98%;
-    border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  border: 1px solid #dca64780;
+  box-shadow: 4px 8px #dca64780;
+  border-radius: 10px;
+  border-top: 5px solid #cc7f06;
+  flex: 50%;
 }
 
 .regSuccses {
-    width: 100%;
-    max-width: 420px;
-    min-height: 50px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background: var(--gray-color);
-    opacity: 89%;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  background: #e8c07a60;
+  opacity: 89%;
+  flex: 50%;
 }
 
-
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    flex-grow: 1;
-    padding-bottom: 1rem;
+.formReg {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0.5rem;
 }
-
- 
+.formRegsec {
+  background-color: #e8c07a60;
+}
 .regInfo {
-    margin-bottom: 0.8rem;
-    color: #000;
+  margin-bottom: 0.8rem;
+  color: #000;
 }
-
 
 label {
-    color: #000;
+  color: #000;
 }
 
-
 .instructions {
-    font-size: 0.75rem;
-    padding: 0.25rem;
-    position: relative;
-    background-color: #000;
-    color: #fafafa;
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  position: relative;
+  background-color: #000;
+  color: #fafafa;
+  width: 300px;
 }
 
 .instructions > svg {
-    margin-right: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .offscreen {
-    position: absolute;
-    left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .valid {
-    color: limegreen;
-    margin-left: 0.25rem;
+  color: limegreen;
+  margin-left: 0.25rem;
 }
 
 .invalid {
-    color: red;
-    margin-left: 0.25rem;
+  color: red;
+  margin-left: 0.25rem;
 }
 
 .errmsg {
-    background-color: lightpink;
-    color: firebrick;
-    font-weight: bold;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  width: 301px;
 }
 
 .line {
-    display: inline-block;
-    color: #fafafa;
+  display: inline-block;
+  color: #fafafa;
 }
 
+.imgBoxReg {
+  flex: 50%;
+  padding: 10px;
+}
+
+.imgLogoReg {
+  float: none;
+  display: inline-block;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+  .imgBox {
+    flex: 100%;
+  }
+  form {
+    flex: 100%;
+    margin: 0;
+    max-width: 323px;
+  }
+  .regBox {
+    padding: 0;
+    max-width: 310px;
+  }
+  .backgroundreg {
+    max-width: 320px;
+  }
+}

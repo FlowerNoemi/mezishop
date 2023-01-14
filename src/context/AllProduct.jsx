@@ -11,7 +11,7 @@ export const AllProductsProvider = ({ children }) => {
   const getallProductsset = async () => {
     try {
       const dataRequest = await getAllProducts();
-      console.log(dataRequest);
+
       setAllProducts(dataRequest);
     } catch (e) {
       console.log("error message : ", e);

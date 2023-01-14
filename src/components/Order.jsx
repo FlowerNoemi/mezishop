@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,7 +14,6 @@ import { active, getOrderData } from "../api/activorder";
 import axios from "../api/axios";
 import "./admin.css";
 import ListItem from "@mui/material/ListItem";
-import EditIcon from "@mui/icons-material/Edit";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
@@ -28,7 +27,7 @@ const Order = () => {
   const [datas, setData] = useState([""]);
   const [errMsg, setErrMsg] = useState("");
   const [shipid, setId] = useState("");
-
+  const errRef = useRef();
   const [open, setOpen] = useState(false);
   const [shipDataCheck, setShipChecked] = useState(false);
 
@@ -99,6 +98,7 @@ const Order = () => {
         setErrMsg("Sikertelen módosítás");
       }
     }
+    errRef.current.focus();
   };
 
   const handleToggle = async (id) => {
@@ -120,6 +120,13 @@ const Order = () => {
 
   return (
     <>
+      <p
+        ref={errRef}
+        className={errMsg ? "errmsg" : "offscreen"}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
       {!open ? (
         <div>
           <TableContainer component={Paper}>
@@ -210,7 +217,7 @@ const Order = () => {
                 </TableHead>
                 <TableBody>
                   {activeOrder.map((row, id) => (
-                    <StyledTableRow key={row.id}>
+                    <StyledTableRow key={id}>
                       <StyledTableCell component="th" scope="row" align="left">
                         <img
                           src={row.img}
@@ -260,8 +267,8 @@ const Order = () => {
               {shipDataCheck && (
                 <div>
                   {datas.map((data, id) => (
-                    <div>
-                      <div className="flex-item-left-Orderdatacard" key={id}>
+                    <div key={id}>
+                      <div className="flex-item-left-Orderdatacard">
                         <h1>Egyéb adatok:</h1>
                         <p>Rendelés azonosító: {data.orderid}</p>
                         <p className="OrderDataP">
@@ -269,7 +276,7 @@ const Order = () => {
                         </p>
                         <p className="OrderDataP2">
                           Adószám:{" "}
-                          {data.adozo == "Jogi személy" ? data.adoszam : "-"}
+                          {data.adozo === "Jogi személy" ? data.adoszam : "-"}
                         </p>
                         <p className="OrderDataP2">
                           EU adószám:{" "}
@@ -321,8 +328,8 @@ const Order = () => {
                               </StyledTableRow>
                             </TableHead>
                             <TableBody>
-                              {datas.map((row) => (
-                                <TableRow key={row.id}>
+                              {datas.map((row, id) => (
+                                <StyledTableRow key={id}>
                                   <StyledTableCell
                                     component="th"
                                     scope="row"
@@ -346,7 +353,7 @@ const Order = () => {
                                   <StyledTableCell align="left">
                                     {row.telefonszam}
                                   </StyledTableCell>
-                                </TableRow>
+                                </StyledTableRow>
                               ))}
                             </TableBody>
                           </Table>
@@ -387,8 +394,8 @@ const Order = () => {
                               </StyledTableRow>
                             </TableHead>
                             <TableBody>
-                              {datas.map((row) => (
-                                <TableRow key={row.id}>
+                              {datas.map((row, id) => (
+                                <StyledTableRow key={id}>
                                   <StyledTableCell
                                     component="th"
                                     scope="row"
@@ -412,7 +419,7 @@ const Order = () => {
                                   <StyledTableCell align="left">
                                     {row.telefonszam2}
                                   </StyledTableCell>
-                                </TableRow>
+                                </StyledTableRow>
                               ))}
                             </TableBody>
                           </Table>

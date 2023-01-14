@@ -1,5 +1,5 @@
 .backgroundlog {
-  padding-top: 70px;
+  padding: 10px;
 }
 
 .logDiv {
@@ -13,34 +13,21 @@
   border-top: 5px solid #cc7f06;
 }
 
-@media (max-width: 600px) {
-  .imgBox {
-    flex: 100%;
-  }
-  .logBox {
-    padding: 5px;
-    flex: 100%;
-  }
-  .backgroundlog {
-    min-height: 100vh;
-    padding: 8px;
-  }
-}
-
 .logBox {
   flex: 40%;
   text-align: center;
-  padding: 5px;
+  padding: 50px;
   background: #e8c07a60;
 }
 
 .imgBox {
   flex: 50%;
+  padding: 10px;
 }
 
 .imgLogo {
   float: none;
-  width: 40%;
+  max-width: 70%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -56,4 +43,52 @@ a:visited {
   text-align: center;
   font-size: 26px;
   margin-top: 5px;
+}
+
+.instructionslog {
+  font-size: 0.75rem;
+  padding: 0.25rem;
+  position: relative;
+  background-color: #000;
+  color: #fafafa;
+  width: 290px;
+}
+
+.instructionslog > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreenlog {
+  position: absolute;
+  left: -9999px;
+}
+
+.logline {
+  display: inline-block;
+  color: #fafafa;
+}
+
+.errmsglog {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  width: 290px;
+}
+
+@media (max-width: 800px) {
+  .imgBox {
+    flex: 100%;
+  }
+  .logBox {
+    padding: 5px;
+    flex: 100%;
+  }
+  .backgroundlog {
+    min-height: 100vh;
+    padding: 1px;
+    max-width: 300px;
+    margin: 10px auto;
+  }
 }

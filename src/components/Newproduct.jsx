@@ -95,12 +95,12 @@ const NewProduct = () => {
         <Box
           component="form"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "22ch" },
+            "& .MuiTextField-root": { m: 1, width: "20ch" },
           }}
           noValidate
           autoComplete="off"
           onSubmit={handleSubmit}
-          className="newBox"
+          className="newBoxClass"
         >
           <h1>Új termék</h1>
           <div>
@@ -158,7 +158,7 @@ const NewProduct = () => {
                     backgroundColor: "#e44444",
                   },
                 },
-                m: 2,
+                m: 1,
               }}
               id="standard-helperText"
               select

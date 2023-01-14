@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { MyinputField } from "../components/input/Myinput";
 import { MyLittleButton } from "../components/button/Buttoncomponents";
 import Datacard from "../components/datacard/Datacard";
+import Allorderdatacard from "../components/datacard/AllorderDatacard";
 import "./profile.css";
 import Typography from "@mui/material/Typography";
 import axios from "../api/axios";
@@ -193,7 +194,7 @@ const Profile = () => {
                     fontFamily: "Arima Madurai, sans-serif",
                   }}
                 >
-                  Adatok módosítása/megadása
+                  Adatok módosítása
                 </Typography>
               }
             />
@@ -210,7 +211,6 @@ const Profile = () => {
                       letterSpacing: ".1rem",
                       textDecoration: "none",
                       color: "#7F4E18",
-                      m: 1,
                     }}
                   >
                     <Grid item xs={6}>
@@ -327,6 +327,7 @@ const Profile = () => {
                 </div>
               )}
             </>
+            <Allorderdatacard></Allorderdatacard>
           </Box>
         </Container>
       </>

@@ -6,8 +6,7 @@ import React from "react";
 
 const OrderDatacard = () => {
   const { userData2 } = useContext(UserContext);
-  const { cartCount, cartItems, myActualData, myOrderIdReq, orderId } =
-    useContext(CartContext);
+  const { orderId } = useContext(CartContext);
 
   return (
     <article
@@ -42,16 +41,16 @@ const OrderDatacard = () => {
               <p className="OrderDataP">Számlázási adatok: {userData2.adozo}</p>
               <p className="OrderDataP2">
                 Adószám:{" "}
-                {userData2.adozo == "Jogi személy" ? userData2.adoszam : "-"}
+                {userData2.adozo === "Jogi személy" ? userData2.adoszam : "-"}
               </p>
               <p className="OrderDataP2">
                 EU adószám:{" "}
-                {userData2.adozo == "Jogi személy" ? userData2.EUadoszam : "-"}
+                {userData2.adozo === "Jogi személy" ? userData2.EUadoszam : "-"}
               </p>
               <p className="OrderDataP">Fizetési mód: {userData2.fizetes}</p>
               <p className="OrderDataP">
                 Megjegyzés:
-                {userData2.comment == "" ? "-" : userData2.comment}
+                {userData2.comment === "" ? "-" : userData2.comment}
               </p>
               <p className="OrderDataP">
                 {" "}

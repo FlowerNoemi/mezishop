@@ -32,7 +32,7 @@ const Basket = () => {
   const { userData, userDataReq, userData2, setUserData2 } =
     useContext(UserContext);
 
-  const [email, setEmail] = useState(auth.email);
+  const [email] = useState(auth.email);
 
   const [vname, setVname] = useState("");
   const [vname2, setVname2] = useState("");
@@ -214,7 +214,7 @@ const Basket = () => {
 
   return (
     <div className="backgroundBasket">
-      <Box sx={{ width: "100%", p: 1 }}>
+      <Box sx={{ width: "100%" }}>
         <Stepper
           activeStep={2}
           alternativeLabel
@@ -241,19 +241,11 @@ const Basket = () => {
         <CssBaseline />
         <Container maxWidth="xl" className="logBasket">
           <Box className="basketBox" autoComplete="off">
-            <div>
-              <MyinputField
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                label="E-mail cím"
-                variant="standard"
-              />
-            </div>
             <Grid
               container
               rowSpacing={1}
-              columnSpacing={2}
-              columns={{ xs: 1, sm: 6, md: 12 }}
+              columnSpacing={1}
+              columns={{ xs: 2, sm: 8, md: 12 }}
             >
               <Grid item xs={6}>
                 <FormControl>
@@ -402,8 +394,8 @@ const Basket = () => {
             <Grid
               container
               rowSpacing={1}
-              columnSpacing={2}
-              columns={{ xs: 1, sm: 6, md: 12 }}
+              columnSpacing={1}
+              columns={{ xs: 2, sm: 8, md: 12 }}
             >
               <Grid item xs={6}>
                 <div>

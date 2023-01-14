@@ -23,8 +23,8 @@ import loginlogo from "../assets/logo1.webp";
 import Background from "../assets/bg.webp";
 const MESSAGE_URL = "/mezi_be/message/newmessage.php";
 
-//eslint-disable-next-line
 const EMAIL_REGEX =
+  //eslint-disable-next-line
   /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 function Contact() {
@@ -214,7 +214,7 @@ function Contact() {
                   {errMsg}
                 </p>
                 <h1 className="Contacth1">Írjon nekünk!</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="contactform">
                   <label htmlFor="email">
                     E-mail cím:
                     <span className={validEmail ? "valid" : "hide"}>
@@ -274,7 +274,7 @@ function Contact() {
                     <FontAwesomeIcon icon={faInfoCircle} />
                     Minimum 2 karakter szükséges! <br />
                   </p>
-                  <div className="btnBox">
+                  <div className="btnBoxContact">
                     <MyButtonmedium
                       disabled={!validEmail || !validMessage ? true : false}
                       value="Küldés"

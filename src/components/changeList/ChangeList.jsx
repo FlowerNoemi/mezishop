@@ -143,7 +143,7 @@ const ChangeList = ({ allproducts }) => {
         <Box
           component="form"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "22ch" },
+            "& .MuiTextField-root": { m: 1 },
           }}
           noValidate
           autoComplete="off"
@@ -153,7 +153,7 @@ const ChangeList = ({ allproducts }) => {
           <h2>Termék módosítás</h2>
           <HighlightOffIcon
             onClick={Cancel}
-            sx={{ marginLeft: "290px", color: "#E18D00" }}
+            sx={{ marginLeft: "270px", color: "#E18D00" }}
           ></HighlightOffIcon>
           <div>
             <MyinputField

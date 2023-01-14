@@ -1,7 +1,7 @@
 .backgroundChange {
   background-color: #fabf6127;
   width: 400px;
-  margin: 2px auto;
+  margin: 50px auto;
   padding: 2px 2px;
 }
 
@@ -39,7 +39,7 @@
   margin: 55px auto;
   padding: 5px;
   text-align: center;
-  max-width: 350px;
+  width: 320px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
@@ -64,4 +64,10 @@
   width: 400px;
   border-radius: 8px;
   text-align: center;
+}
+
+@media (max-width: 600px) {
+  .backgroundChange {
+    width: 300px;
+  }
 }

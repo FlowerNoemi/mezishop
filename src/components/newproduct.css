@@ -1,16 +1,17 @@
 .backgroundNew {
   background-color: #fabf6127;
   min-height: 88vh;
-  padding-top: 20px;
+  padding-top: 10px;
+  text-align: center;
 }
 .errmsgNewProduct {
   background-color: lightpink;
   color: firebrick;
   font-weight: bold;
-  padding: 0.6rem;
+  padding: 0.2rem;
   margin-bottom: 0.5rem;
   margin-top: 0.05rem;
-  width: 348px;
+  width: 300px;
   border-radius: 8px;
 }
 .offscreenNewProduct {
@@ -20,29 +21,29 @@
 
 .NewProductSuccses {
   text-align: center;
-  padding: 20px;
+
   background: #e8c07a60;
-  max-width: 400px;
   margin: 0 auto;
   text-align: center;
-  max-width: 350px;
+  width: 350px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
 }
 
-.newBox {
+.newBoxClass {
   display: flex;
   flex-wrap: wrap;
   background: #e8c07a60;
   margin: 0 auto;
   text-align: center;
-  max-width: 300px;
+  width: 310px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
+  padding: 5px;
 }
 
 .inputFile {

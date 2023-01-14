@@ -8,6 +8,12 @@ import loginlogo from "../assets/logo1.webp";
 import { MyButtonmedium } from "../components/button/Buttoncomponents";
 const LOGIN_URL = "/mezi_be/auth/auth.php";
 
+const EMAIL_REGEX =
+  //eslint-disable-next-line
+  /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+
 const Login = () => {
   const { setAuth } = useAuth();
   const navigate = useNavigate();
@@ -15,12 +21,26 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/home";
   const errRef = useRef();
   const [email, setEmail] = useState("");
+  const [validEmail, setValidEmail] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
   const [pwd, setPwd] = useState("");
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     setErrMsg("");
   }, [email, pwd]);
+
+  useEffect(() => {
+    const result = EMAIL_REGEX.test(email);
+    setValidEmail(result);
+  }, [email]);
+
+  useEffect(() => {
+    const result = PWD_REGEX.test(pwd);
+    setValidPwd(result);
+  }, [pwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,11 +53,9 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
       const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      console.log(roles);
+
       setAuth({
         email,
         roles,
@@ -75,7 +93,7 @@ const Login = () => {
           <p className="logP">
             Még nem regisztrált?
             <br />
-            <span className="line">
+            <span className="logline">
               <Link to="/register">Regisztráció</Link>
             </span>
           </p>
@@ -83,7 +101,7 @@ const Login = () => {
         <section className="logBox">
           <p
             ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
+            className={errMsg ? "errmsglog" : ".offscreenlog"}
             aria-live="assertive"
           >
             {errMsg}
@@ -96,15 +114,50 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
+              onFocus={() => setEmailFocus(true)}
+              onBlur={() => setEmailFocus(false)}
             />
+            <p
+              className={
+                emailFocus && email && !validEmail
+                  ? "instructionslog"
+                  : "offscreenlog"
+              }
+            >
+              Elküldés előtt add meg az email címed! <br />
+              Az e-mail cím formátuma nem megfelelő! <br />
+            </p>
+
             <MyinputPasswordLogin
               label="Jelszó:"
               onChange={(e) => setPwd(e.target.value)}
               value={pwd}
               required
+              onFocus={() => setPwdFocus(true)}
+              onBlur={() => setPwdFocus(false)}
             />
+            <p
+              id="pwdnote"
+              className={
+                pwdFocus && pwd && !validPwd
+                  ? "instructionslog"
+                  : "offscreenlog"
+              }
+            >
+              8-24 karakter
+              <br />
+              Tartalmaznia kell kis és nagybetűt, számot, speciális karaktert.{" "}
+              <br />
+              Engedélyezett speciális karakterek:{" "}
+              <span aria-label="exclamation mark">!</span>{" "}
+              <span aria-label="at symbol">@</span>{" "}
+              <span aria-label="hashtag">#</span>{" "}
+              <span aria-label="dollar sign">$</span>{" "}
+              <span aria-label="percent">%</span>
+            </p>
             <div className="btnBox">
               <MyButtonmedium
+                disabled={!validEmail || !validPwd ? true : false}
                 className="loginBtn"
                 value="Bejelentkezés"
               ></MyButtonmedium>

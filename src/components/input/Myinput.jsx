@@ -24,7 +24,7 @@ export const Myinput = ({ value, onChange, label, onFocus, onBlur, type }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 1,
+        my: 1,
         width: "20ch",
       }}
       label={label}
@@ -106,7 +106,7 @@ export const MyTextArea = ({ value, onChange, label, onFocus, onBlur }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 1,
+        mx: 1,
         width: "20ch",
       }}
       label={label}
@@ -182,7 +182,7 @@ export const MyinputFieldArea = ({ value, onChange, label, type }) => {
             borderBottomColor: "#D69967",
           },
         },
-        m: 1,
+        my: 1,
         width: "20ch",
       }}
       label={label}
@@ -198,7 +198,13 @@ export const MyinputFieldArea = ({ value, onChange, label, type }) => {
   );
 };
 
-export const MyinputPasswordLogin = ({ value, onChange, label }) => {
+export const MyinputPasswordLogin = ({
+  value,
+  onChange,
+  label,
+  onFocus,
+  onBlur,
+}) => {
   return (
     <TextField
       className="input"
@@ -221,7 +227,7 @@ export const MyinputPasswordLogin = ({ value, onChange, label }) => {
             borderColor: "#D69967",
           },
         },
-        m: 1,
+        my: 1,
         width: "20ch",
         fontFamily: "Arima Madurai, sans-serif",
       }}
@@ -232,6 +238,8 @@ export const MyinputPasswordLogin = ({ value, onChange, label }) => {
       variant="standard"
       onChange={onChange}
       type="password"
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import "./productcard.css";
@@ -32,13 +31,14 @@ const ProductCard = ({ product }) => {
         <div className="card-title">
           <h2>{termeknev}</h2>
         </div>
-        <CardMedia
-          component="img"
-          image={img}
-          alt={`${termeknev}`}
-          title={`${termeknev}`}
-          className="post-img"
-        />
+        <div className="post-img-box">
+          <img
+            src={img}
+            alt={`${termeknev}`}
+            title={`${termeknev}`}
+            className="post-img"
+          />
+        </div>
         <CardContent className="post-content">
           <h4>{mennyiseg}</h4>
           <div className="ar">{ar} Ft</div>

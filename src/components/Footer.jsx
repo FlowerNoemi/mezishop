@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footerBox">
       <p className="copy">
-        <sup>&copy;</sup> 2022
+        <sup>&copy;</sup> 2023
       </p>
       <img
         src={flowerNoemi}
