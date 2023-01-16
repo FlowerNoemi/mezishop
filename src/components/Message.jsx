@@ -10,7 +10,6 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { MyButtonsmall } from "../components/button/Buttoncomponents";
 import { getAllMessage } from "../api/getmessage";
-import "./message.css";
 
 const Message = () => {
   const [messages, setMessages] = useState([""]);

@@ -53,3 +53,7 @@ h4 {
   font-size: 18px;
   text-transform: uppercase;
 }
+
+.buttonBox {
+  margin: 0 auto;
+}

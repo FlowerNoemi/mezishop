@@ -1,13 +1,12 @@
 .backgroundreg {
   max-width: 800px;
-  margin: 10px auto;
+  margin: 60px auto;
 }
 
 .regBox {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 1.5rem 1.5rem;
   margin: 0 auto;
 }
 
@@ -50,7 +49,7 @@ label {
 }
 
 .instructions {
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   padding: 0.25rem;
   position: relative;
   background-color: #000;

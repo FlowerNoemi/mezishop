@@ -1,8 +1,8 @@
 .backgroundChange {
   background-color: #fabf6127;
-  width: 400px;
+  width: 600px;
   margin: 50px auto;
-  padding: 2px 2px;
+  padding: 5px 0;
 }
 
 .listBox {
@@ -39,7 +39,7 @@
   margin: 55px auto;
   padding: 5px;
   text-align: center;
-  width: 320px;
+  width: 300px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
@@ -61,13 +61,13 @@
   padding: 0.6rem;
   margin-bottom: 0.5rem;
   margin-top: 0.05rem;
-  width: 400px;
+  width: 300px;
   border-radius: 8px;
   text-align: center;
 }
 
 @media (max-width: 600px) {
   .backgroundChange {
-    width: 300px;
+    width: 295px;
   }
 }

@@ -1,5 +1,5 @@
 .backgroundlog {
-  padding: 10px;
+  margin-top: 60px;
 }
 
 .logDiv {
@@ -46,7 +46,7 @@ a:visited {
 }
 
 .instructionslog {
-  font-size: 0.75rem;
+  font-size: 0.55rem;
   padding: 0.25rem;
   position: relative;
   background-color: #000;

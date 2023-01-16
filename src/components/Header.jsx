@@ -222,7 +222,9 @@ const Header = () => {
                   padding: 0.5,
                 }}
               >
-                <AccountCircle />
+                <Tooltip title="Profilom">
+                  <AccountCircle />
+                </Tooltip>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -248,7 +250,7 @@ const Header = () => {
                       cursor: "pointer",
                     }}
                   >
-                    Profilom
+                    Adataim
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={handleClose}>

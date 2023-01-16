@@ -10,7 +10,7 @@ const OrderDatacard = () => {
 
   return (
     <article
-      style={{ padding: "30px" }}
+      style={{ paddingLeft: "30px" }}
       className="flex-container-Orderdatacard"
     >
       <div className="flex-item-left-Orderdatacard">

@@ -7,7 +7,7 @@ const Datacard = () => {
   const { userData, userData2 } = useContext(UserContext);
 
   return (
-    <article style={{ padding: "30px" }} className="flex-container-datacard">
+    <article className="flex-container-datacard">
       <div className="flex-item-left-datacard">
         {userData2.szallitas === "Személyes átvétel" ? (
           <div>

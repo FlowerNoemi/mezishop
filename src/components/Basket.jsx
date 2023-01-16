@@ -82,7 +82,6 @@ const Basket = () => {
       szallitas: szallitas,
       fizetes: fizetes,
     });
-    console.log(userData2);
     try {
       const response = await axios.post(
         MyUpdate_URL,
@@ -161,9 +160,6 @@ const Basket = () => {
     if (userData.telefon2) {
       setTelefon2(userData.telefon2);
     }
-    if (userData.comment) {
-      setComment(userData.comment);
-    }
     if (userData2.szallitas) {
       setSzallitas(userData2.szallitas);
     }
@@ -178,6 +174,9 @@ const Basket = () => {
     }
     if (userData2.EUadoszam) {
       setEUAdoszam(userData2.EUadoszam);
+    }
+    if (userData2.comment) {
+      setComment(userData2.comment);
     }
   }, [
     userData.vname,
@@ -198,6 +197,7 @@ const Basket = () => {
     userData2.adozo,
     userData2.adoszam,
     userData2.EUadoszam,
+    userData2.comment,
   ]);
 
   const handleChange = (event) => {
@@ -245,7 +245,7 @@ const Basket = () => {
               container
               rowSpacing={1}
               columnSpacing={1}
-              columns={{ xs: 2, sm: 8, md: 12 }}
+              columns={{ xs: 2, md: 12 }}
             >
               <Grid item xs={6}>
                 <FormControl>

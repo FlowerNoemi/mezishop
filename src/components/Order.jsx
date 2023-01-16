@@ -18,6 +18,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import "./order.css";
 
 const orderStatus_URL = "/mezi_be/order/shipfinish.php";
 
@@ -130,7 +131,7 @@ const Order = () => {
       {!open ? (
         <div>
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 600, my: 5 }} aria-label="customized table">
+            <Table sx={{ minWidth: 600, mb: 10 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
                   <StyledTableCell>Rendelés azonosító</StyledTableCell>
@@ -191,7 +192,7 @@ const Order = () => {
           </Stack>
         </div>
       ) : (
-        <div>
+        <div className="orderitems">
           <h1>Rendelés részletek</h1>
           <MyButtonsmall onClick={() => back()} value="Vissza"></MyButtonsmall>
           <div>
@@ -259,10 +260,12 @@ const Order = () => {
                     fontFamily: "Arima Madurai, sans-serif",
                   }}
                 >
-                  Adatok
+                  Egyéb adatok
                 </Typography>
               }
             />
+          </div>
+          <div>
             <>
               {shipDataCheck && (
                 <div>
@@ -329,7 +332,7 @@ const Order = () => {
                             </TableHead>
                             <TableBody>
                               {datas.map((row, id) => (
-                                <StyledTableRow key={id}>
+                                <StyledTableRow key={row.id}>
                                   <StyledTableCell
                                     component="th"
                                     scope="row"
@@ -368,7 +371,7 @@ const Order = () => {
                         >
                           <h3>Számlázási cím:</h3>
                           <Table
-                            sx={{ minWidth: 700, mb: 8 }}
+                            sx={{ minWidth: 700, mb: 2 }}
                             aria-label="customized table"
                           >
                             <TableHead>

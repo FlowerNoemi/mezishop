@@ -81,14 +81,14 @@ const Home = () => {
             </div>
             <div className="homeBox">
               <MyButtonmedium
-                onClick={order}
-                value="Kiszállítások"
+                onClick={Allorder}
+                value="Rendelések"
               ></MyButtonmedium>
             </div>
             <div className="homeBox">
               <MyButtonmedium
-                onClick={Allorder}
-                value="Rendelések"
+                onClick={order}
+                value="Kiszállítások"
               ></MyButtonmedium>
             </div>
             <div className="homeBox">

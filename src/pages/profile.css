@@ -13,6 +13,16 @@
 
 @media (max-width: 800px) {
   .backgroundProfile {
+    max-width: 600px;
+  }
+  .ProfileBox {
+    padding: 0px;
+    background: #e8c07a60;
+  }
+}
+
+@media (max-width: 400px) {
+  .backgroundProfile {
     max-width: 300px;
   }
   .ProfileBox {

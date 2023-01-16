@@ -153,7 +153,7 @@ const ChangeList = ({ allproducts }) => {
           <h2>Termék módosítás</h2>
           <HighlightOffIcon
             onClick={Cancel}
-            sx={{ marginLeft: "270px", color: "#E18D00" }}
+            sx={{ marginLeft: "250px", color: "#E18D00" }}
           ></HighlightOffIcon>
           <div>
             <MyinputField
@@ -266,8 +266,7 @@ const ChangeList = ({ allproducts }) => {
           <List
             dense
             sx={{
-              width: "100%",
-              maxWidth: 400,
+              minWidth: "100%",
               height: 100,
               marginBottom: "50px",
             }}

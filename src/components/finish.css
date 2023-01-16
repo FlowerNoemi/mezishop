@@ -4,16 +4,16 @@
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
-  max-width: 800px;
+  max-width: 1200px;
   margin-bottom: 50px;
   padding: 0;
 }
 
 .totalFinish {
-  margin-top: 30px;
-  font-size: 26px;
+  margin-top: 5px;
+  font-size: 22px;
   text-align: end;
-  padding: 10px;
+  padding: 5px;
 }
 
 .backgroundFinish {
@@ -24,20 +24,11 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  max-width: 800px;
   border: 1px solid #dca64780;
   box-shadow: 4px 8px #dca64780;
   border-radius: 10px;
   border-top: 5px solid #cc7f06;
-}
-
-@media (max-width: 800px) {
-  .imgBoxFinish {
-    flex: 100%;
-  }
-  .backgroundContact {
-    padding: 8px;
-  }
+  max-width: 600px;
 }
 
 .imgBoxFinish {
@@ -69,11 +60,20 @@
   color: firebrick;
   font-weight: bold;
   padding: 0.6rem;
-  width: 348px;
+  width: 100%;
   border-radius: 8px;
   margin: 0 auto;
 }
 .offscreenNewFinish {
   position: absolute;
   left: -9999px;
+}
+
+@media (max-width: 800px) {
+  .imgBoxFinish {
+    flex: 100%;
+  }
+  .backgroundFinish {
+    padding: 8px;
+  }
 }

@@ -76,7 +76,7 @@ const Finish = () => {
         clearFromCart();
         console.log();
       } else {
-        setErrMsg(response.data.message);
+        setErrMsg(response?.data);
       }
     } catch (err) {
       if (!err?.response) {
@@ -86,6 +86,8 @@ const Finish = () => {
       }
     }
     navigate("/finish");
+
+    errRef.current.focus();
   };
 
   const Basket = () => {
@@ -121,7 +123,7 @@ const Finish = () => {
         </div>
       ) : (
         <>
-          <Box sx={{ width: "100%", p: 1 }}>
+          <Box sx={{ width: "100%" }}>
             <Stepper
               activeStep={3}
               alternativeLabel
@@ -144,16 +146,15 @@ const Finish = () => {
               ))}
             </Stepper>
           </Box>
-
+          <p
+            ref={errRef}
+            className={errMsg ? "errmsgFinish" : "offscreenNewFinish"}
+            aria-live="assertive"
+          >
+            {errMsg}
+          </p>
           <section className="finishBox">
             <div>
-              <p
-                ref={errRef}
-                className={errMsg ? "errmsgFinish" : "offscreenNewFinish"}
-                aria-live="assertive"
-              >
-                {errMsg}
-              </p>
               <Datacard></Datacard>
               <OrderDatacard></OrderDatacard>
 

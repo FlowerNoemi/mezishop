@@ -1,6 +1,5 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
-import "./myinput.css";
 
 export const Myinput = ({ value, onChange, label, onFocus, onBlur, type }) => {
   return (
