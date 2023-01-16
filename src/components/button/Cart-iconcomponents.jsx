@@ -7,6 +7,7 @@ import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import axios from "../../api/axios";
+import Tooltip from "@mui/material/Tooltip";
 const rendeles_URL = "/mezi_be/order/rendeles.php";
 
 const CartIcon = () => {
@@ -36,9 +37,6 @@ const CartIcon = () => {
 
   const Back = async () => {
     for (const cartItem of cartItems) {
-      console.log(userData.id);
-      console.log(cartItem);
-
       try {
         const response = await axios.post(
           rendeles_URL,
@@ -93,7 +91,9 @@ const CartIcon = () => {
           },
         }}
       >
-        <ShoppingBasketIcon />
+        <Tooltip title="Kosaram">
+          <ShoppingBasketIcon />
+        </Tooltip>
       </Badge>
     </IconButton>
   );
