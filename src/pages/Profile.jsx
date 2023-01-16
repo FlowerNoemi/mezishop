@@ -92,7 +92,6 @@ const Profile = () => {
         },
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
         }
       );
       if (response?.data.code === "1") {

@@ -69,7 +69,6 @@ const Register = () => {
         { email: email, password: pwd },
         {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
         }
       );
 
