@@ -10,7 +10,6 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { MyButtonsmall } from "../components/button/Buttoncomponents";
 import { getAllUsers } from "../api/getallaxios";
-import "./admin.css";
 
 const Admin = () => {
   const [users, setUsers] = useState([""]);

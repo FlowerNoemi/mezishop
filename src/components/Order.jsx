@@ -12,7 +12,6 @@ import { MyButtonsmall } from "../components/button/Buttoncomponents";
 import { getOrder } from "../api/getorder";
 import { active, getOrderData } from "../api/activorder";
 import axios from "../api/axios";
-import "./admin.css";
 import ListItem from "@mui/material/ListItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Typography from "@mui/material/Typography";
@@ -332,7 +331,7 @@ const Order = () => {
                             </TableHead>
                             <TableBody>
                               {datas.map((row, id) => (
-                                <StyledTableRow key={row.id}>
+                                <StyledTableRow key={id}>
                                   <StyledTableCell
                                     component="th"
                                     scope="row"
